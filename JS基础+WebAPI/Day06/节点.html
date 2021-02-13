@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>我是div</div>
+    <span>我是span</span>
+    <ul>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+    </ul>
+    <div class="demo">
+        <div class="box">
+            <div class="erweima"></div>
+        </div>
+    </div>
+    <script>
+        var box = document.querySelector('.box');
+        console.dir(box);
+        var erweima = document.querySelector('.erweima');
+        console.log(erweima.parentNode);
+
+        var ul =document.querySelector('ul');
+        console.log( ul.childNodes);
+        console.log(ul.children);
+        
+        
+    </script>
+</body>
+
+</html>

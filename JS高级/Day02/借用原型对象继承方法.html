@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //通过借用父构造函数来继承属性
+        //1。父构造函数
+        function Father(uname, age) {
+            //this指向父构造函数的对象实例
+            console.log(this);
+            
+            this.uname = uname;
+            this.age = age;
+        }
+        Father.prototype.money = function () {
+            console.log(100000);
+        }
+        //2.子构造函数
+        function Son(uname, age) {
+            //thiss指向子构造函数的对象实例
+            Father.call(this, uname, age);
+        }
+        // Son.prototype = Father.prototype;
+        Son.prototype = new Father();
+        Son.prototype.exam = function () {
+            console.log('孩子要考试');
+        }
+        // var zxy = new Father('张学友', 12)
+        var ldh = new Son('刘德华', 12);
+        console.log(ldh);
+        // console.log(zxy);
+    </script>
+</body>
+
+</html>

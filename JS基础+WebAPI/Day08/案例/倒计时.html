@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            line-height: 50px;
+            font-size: 30px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" placeholder="请输入时间" class="time">
+    <button>停止</button>
+    <span class="day">1</span>
+    <span class="hour">2</span>
+    <span class="minute">3</span>
+    <span class="second">4</span>
+    <script>
+        let ipt = document.querySelector('.time')
+        var day = document.querySelector('.day');
+        var hour = document.querySelector('.hour');
+        var minute = document.querySelector('.minute');
+        var second = document.querySelector('.second');
+        let time = '2020-10-15 14:06:00'
+        // 防止第一次刷新页面有空白
+        contDown(time);
+        var time1 = setInterval(function () {
+            contDown(time);
+        }, 1000);
+
+        var btn = document.querySelector('button');
+        btn.addEventListener('click', function () {
+            if (btn.innerText == '停止') {
+                clearInterval(time1);
+                btn.innerText = '开始';
+            } else {
+                time1 = setInterval(function () {
+                    contDown(time);
+                }, 1000);
+                btn.innerText = '停止';
+            }
+        })
+
+        function contDown(time) {
+            var now_time = new Date();
+            var input_time = new Date(time);
+            var over_time = (input_time - now_time) / 1000;
+
+            var d = parseInt(over_time / 60 / 60 / 24);
+            day.innerHTML = d < 10 ? '0' + d : d;
+            var h = parseInt(over_time / 60 / 60 % 24);
+            hour.innerHTML = h < 10 ? '0' + h : h;
+            var m = parseInt(over_time / 60 % 60);
+            minute.innerHTML = m < 10 ? '0' + m : m;
+            var s = parseInt(over_time % 60);
+            second.innerHTML = s < 10 ? '0' + s : s;
+        }
+
+        // var arr = contDown2('2020-5-15 22:20:00');
+        // day1.innerHTML = arr[0];
+        // hour2.innerHTML = arr[1];
+        // minute3.innerHTML = arr[2];
+        //  second4.innerHTML = arr[3];
+        // function contDown2(time) {
+        //     var arr = [];
+        //     var now_time = new Date();
+        //     var input_time = new Date(time);
+        //     var over_time = (input_time - now_time) / 1000;
+        //     var day = parseInt(over_time / 60 / 60 / 24);
+
+        //     arr[0] = day < 10 ? '0' + day : day;
+        //     day1.innerHTML = day;
+        //     var hour = parseInt(over_time / 60 / 60 % 24);
+        //     arr[1] = hour < 10 ? '0' + hour : hour;
+
+        //     var minute = parseInt(over_time / 60 % 60);
+        //     arr[2] = minute < 10 ? '0' + minute : minute;
+
+        //     var second = parseInt(over_time % 60);
+        //     arr[3] = second < 10 ? '0' + second : second;
+        //     return arr;
+        // }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击</button>
+    <p>333</p>
+    <div class="inner"></div>
+    <script>
+        //1 会导致文档流重绘
+        var btn = document.querySelector('button');
+        btn.onclick = function () {
+            document.write('<div>123</div>');
+        }
+        //2.innerHTML 
+        var inner = document.querySelector('.inner');
+        inner.innerHTML = '<a href="#">百度</a>';
+        // 创建多个字符串拼接的时候特别慢效率低
+        // 但是用数组的形式拼接是最快的
+        var arr = [];
+        var date1 = Date.now();
+        for (var i = 0; i < 1000; i++) {
+            arr.push('<a href="#">9</a>');
+        }
+        inner.innerHTML = arr.join('');
+        var date2 = Date.now();
+        console.log(date2 - date1);
+
+        //3.createElement 
+        var news = document.createElement('span');
+        news.innerHTML = '3434';
+        inner.appendChild(news);
+    </script>
+</body>
+
+</html>

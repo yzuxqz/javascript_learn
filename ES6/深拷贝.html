@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    window.onload = function () {
+        let arr = [1, 2, {userName: 'xqz'}, 3, 2]
+
+        function clone(a) {
+            if (a instanceof Array) {
+                let arr1 = []
+                for (let i = 0; i < arr.length; i++) {
+                    if (arr[i] instanceof Object) {
+                        arr1[i] = clone(arr[i])
+                    } else {
+                        arr1[i] = arr[i]
+                    }
+                }
+                return arr1
+            } else if (a instanceof Object) {
+                let obj = {}
+                for (const key in a) {
+                    obj[key] = a[key]
+                }
+                return obj
+            }
+        }
+
+        let newArr = clone(arr)
+        console.log(newArr)
+        newArr[2].userName = 'hhh'
+        console.log(arr)
+        console.log(newArr)
+    }
+</script>
+</html>

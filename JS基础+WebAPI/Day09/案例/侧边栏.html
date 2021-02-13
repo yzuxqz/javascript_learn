@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .w {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            height: 300px;
+            background-color: rosybrown;
+        }
+
+        .banner {
+            height: 500px;
+            background-color: skyblue;
+        }
+
+        .main {
+            height: 3000px;
+            background-color: green;
+        }
+
+        .side {
+            position: absolute;
+            left: 50%;
+            top: 500px;
+            margin-left: 600px;
+            width: 50px;
+            height: 100px;
+            background-color: greenyellow;
+        }
+
+        .goback {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="w">
+        头部区域
+    </header>
+    <div class="banner w">banner区域</div>
+    <div class="main w">主体部分</div>
+    <div class="side">
+        <span class="goback"> 返回顶部</span>
+    </div>
+</body>
+<script>
+    var header = document.querySelector('header');
+    var side = document.querySelector('.side');
+    var banner = document.querySelector('.banner');
+    var main = document.querySelector('.main');
+    var goback = document.querySelector('.goback');
+    var bannertop = banner.offsetTop;
+    console.log(side.offsetTop);
+
+    var sidetop = side.offsetTop - bannertop;
+
+    document.addEventListener('scroll', function () {
+        var y = window.pageYOffset;
+        if (y >= bannertop) {
+            side.style.position = 'fixed';
+            side.style.top = sidetop + 'px';
+        } else {
+            side.style.position = 'absolute';
+            side.style.top = '500px';
+        }
+        if (y >= main.offsetTop) {
+            goback.style.display = 'block';
+        } else {
+            goback.style.display = 'none';
+        }
+    })
+</script>
+
+</html>

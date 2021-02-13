@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .box1 {
+            position: relative;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            width: 520px;
+            height: 333px;
+            margin: 100px auto;
+            background-color: greenyellow;
+            padding: 10px 0;
+            overflow: hidden;
+        }
+
+        .box1 ul {
+            position: absolute;
+        }
+
+        .box1 li {
+            float: left;
+            margin: 0 10px;
+        }
+
+        .right {
+            position: absolute;
+            width: 50px;
+            height: 25px;
+            z-index: 1;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+        }
+
+        .left {
+            position: absolute;
+            width: 50px;
+            height: 25px;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+        }
+
+        .circles {
+            position: absolute;
+            width: 1000px;
+            height: 10px;
+
+            bottom: 0;
+        }
+
+        .circles li {
+            float: left;
+            width: 10px;
+            height: 10px;
+            background-color: rgba(0, 0, 0, .5);
+            border-radius: 50%;
+        }
+    </style>
+    <script src="animate.js"></script>
+    <script>
+        window.onload = function () {
+            let box1 = document.querySelector('.box1')
+            let ul = document.querySelector('.box1 ul')
+            let imgArr = document.getElementsByTagName('img')
+            let right = document.querySelector('.right')
+            let left = document.querySelector('.left')
+            let circles_wrapper = document.querySelector('.circles')
+            let circles = document.querySelectorAll('.circles li')
+            let flag = true
+            let circle = 0
+            ul.style.width = 520 * imgArr.length + 'px'
+            circles[0].style.backgroundColor='red'
+            let index = 0
+            for (let i = 0; i < circles.length; i++) {
+                circles[i].setAttribute('data-index', i + 1)
+            }
+            circles_wrapper.addEventListener('click', function (e) {
+                if(e.target.nodeName==='LI'){
+                    for (let i = 0; i < circles.length; i++) {
+                        circles[i].style.backgroundColor = 'rgba(0, 0, 0, .5)'
+                    }
+                    e.target.style.backgroundColor = 'red'
+                    animate(ul, -520 * (e.target.getAttribute('data-index')-1))
+                    index= e.target.getAttribute('data-index')
+                    circle=index
+                }
+            })
+            right.addEventListener('click', function () {
+                if (flag) {
+                    flag = false
+                    index++
+                    circle++
+                    if (index === 6) {
+                        ul.style.left = 0 + 'px'
+                        index = 1
+                    }
+                    if(circle === 5){
+                        circle=0
+                    }
+                    for (let i = 0; i <circles.length ; i++) {
+                        circles[i].style.backgroundColor='rgba(0, 0, 0, .5)'
+                    }
+                    circles[circle].style.backgroundColor='red'
+                    animate(ul, -520 * index, function () {
+                        flag = true
+                    })
+                }
+            })
+            left.addEventListener('click', function () {
+                if (flag) {
+                    flag = false
+                    index--
+                    circle--
+                    if (index === -1) {
+                        ul.style.left = (-520 * (imgArr.length - 1)) + 'px'
+                        index = 4
+                        circle=4
+                    }
+                    for (let i = 0; i <circles.length ; i++) {
+                        circles[i].style.backgroundColor='rgba(0, 0, 0, .5)'
+                    }
+                    circles[circle].style.backgroundColor='red'
+                    animate(ul, -520 * index, function () {
+                        flag = true
+                    })
+                }
+            })
+            box1.addEventListener('mouseenter', function () {
+                clearInterval(timer)
+                timer = null
+            })
+            box1.addEventListener('mouseleave', function () {
+                timer = setTimeout(function () {
+                    right.click()
+                }, 1000)
+            })
+            let timer = setInterval(function () {
+                right.click()
+            }, 1000)
+
+
+        }
+    </script>
+</head>
+<body>
+<div class="box1">
+    <ul>
+        <li><img src="../public/1.jpg" alt=""></li>
+        <li><img src="../public/2.jpg" alt=""></li>
+        <li><img src="../public/3.jpg" alt=""></li>
+        <li><img src="../public/4.jpg" alt=""></li>
+        <li><img src="../public/5.jpg" alt=""></li>
+        <li><img src="../public/1.jpg" alt=""></li>
+    </ul>
+    <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <button class="right">下一张</button>
+    <button class="left">上一张</button>
+</div>
+
+</body>
+</html>

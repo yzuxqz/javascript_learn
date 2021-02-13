@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>牛</button>
+    <script>
+        let num = 10;
+        console.log(num);
+        if (true) {
+            let b = 20;
+            console.log(b);
+            if (true) {
+                let c = 30;
+            }
+
+
+        }
+        // console.log(b);
+        for (var i = 0; i < 9; i++) {
+
+        }
+        console.log(i);
+        for (let j = 0; j < 9; j++) {
+            console.log(j);
+
+        }
+        // console.log(j);
+        // 暂时性死区
+        var tmp = 123;
+        if (true) {
+                tmp = 'avd';
+                // let tmp;
+            }
+            console.log(tmp);
+    </script>
+</body>
+
+</html>

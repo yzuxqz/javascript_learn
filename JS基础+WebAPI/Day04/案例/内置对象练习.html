@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var num = getRandom(1, 100);
+        var times = 0;
+        do {
+            var input = prompt('请输入一个1-10之间的数字:');
+            var flag = true;
+            if (input > num) {
+                alert('数字大了');
+                times++;
+            } else if (input < num) {
+                alert('数字小了');
+                times++;
+            } else {
+                alert('猜对了');
+                flag = false;
+            }
+            if (times == 10) {
+                alert('次数已用完');
+            }
+        } while (flag && times != 10)
+
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

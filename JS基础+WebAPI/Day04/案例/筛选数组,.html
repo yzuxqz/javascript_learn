@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        console.log(newSalary([12343, 434, 566, 234, 5252]));
+
+        function newSalary(oldsalary) {
+            var newsalary = [];
+            if (oldsalary instanceof Array) {
+                for (var i = 0; i < oldsalary.length; i++) {
+                    if (oldsalary[i] <= 2000) {
+                        newsalary.push(oldsalary[i]);
+                    }
+                }
+                return newsalary;
+            } else {
+                return '请传入数组参数';
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div getTime="20"></div>
+    <script>
+        var div=document.querySelector('div');
+        console.log(div.getTime);
+        console.log(div.getAttribute('getTime'));
+        div.setAttribute('data-time','re');
+        console.log(div.getAttribute('data-time'));
+        div.dataset.index=1;
+        console.log(div.dataset);
+        console.log(div.dataset['index']);
+        div.dataset.listName=3;
+        console.log(div.dataset.listName);     
+    </script>
+</body>
+</html>

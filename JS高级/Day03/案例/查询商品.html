@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td {
+            width: 200px;
+        }
+
+        table {
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="1">
+        <div>
+            <span>按照价格查询：</span>
+            <input type="text" class="min">-
+            <input type="text" class="max">
+            <button class="search">搜索</button>
+            <span>按照商品名称查询：</span>
+            <input type="text" class="uname">
+            <button class="find">查询</button>
+        </div>
+        <thead>
+            <tr>
+                <td>id</td>
+                <td>产品名称</td>
+                <td>价格</td>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <script>
+            var data = [{
+                    id: 1,
+                    pname: '小米',
+                    price: 3999
+                },
+                {
+                    id: 2,
+                    pname: 'oppo',
+                    price: 999
+                },
+                {
+                    id: 3,
+                    pname: '荣耀',
+                    price: 1299
+                },
+                {
+                    id: 4,
+                    pname: '华为',
+                    price: 1999
+                }
+            ];
+
+
+            var tbody = document.querySelector('tbody');
+            var min = document.querySelector('.min');
+            var max = document.querySelector('.max');
+            var btn1 = document.querySelector('.search');
+            var btn2 = document.querySelector('.find');
+            var uname = document.querySelector('.uname')
+            // 1.动态渲染数据
+            function show(array) {
+                tbody.innerHTML = '';
+                array.forEach(function (value, index, array) {
+                    var tr = document.createElement('tr');
+                    tr.innerHTML = '<td>' + value['id'] + '</td><td>' + value['pname'] + '</td><td>' + value[
+                        'price'] + '</td>';
+                    tbody.appendChild(tr);
+                });
+            }
+            show(data);
+
+            //2.根据价格查询
+            btn1.addEventListener('click', function () {
+                var arr = data.filter(function (value, index, array) {
+                    return min.value <= value.price && value.price <= max.value;
+                });
+
+                show(arr);
+            })
+            //3.根据名称查询
+            btn2.addEventListener('click', function () {
+                var arr = [];
+                data.some(function (value, index, array) {
+                    if (value.pname === uname.value) {
+                        arr.push(value);
+                        return true; //停止循环
+                    }
+                })
+                show(arr);
+            })
+
+            uname.addEventListener('keydown', function (e) {
+                console.log(1);
+                if (e.keyCode === 13) {
+                    btn2.click();
+                }
+            })
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <button class="add">添加</button>
+    <button class="del">删除</button>
+    <ul>
+        <li>熊大</li>
+        <li>熊二</li>
+        <li>光头强</li>
+    </ul>
+    <script>
+        var text = document.querySelector('textarea');
+        var add = document.querySelector('.add');
+        var del = document.querySelector('.del');
+        var ul = document.querySelector('ul');
+        add.onclick = function () {
+            if (text.value == '') {
+                alert('亲输入');
+                return false;
+            } else {
+                var li = document.createElement('li');
+                li.innerHTML = text.value;
+                ul.insertBefore(li, ul.children[0]);
+                del.disabled = false;
+            }
+        }
+        del.onclick = function () {
+            ul.removeChild(ul.children[0]);
+            if (ul.children.length == 0) {
+                this.disabled = true;
+            }
+        }
+    </script>
+</body>
+
+</html>

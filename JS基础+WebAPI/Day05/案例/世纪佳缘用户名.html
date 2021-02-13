@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a {
+            border: 10px solid pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <input type="text" placeholder="邮箱/ID/手机号" class="ipt1">
+        <input type="text" placeholder="密码" class="ipt2">
+    </div>
+    <script>
+        var ipt1 = document.querySelector('.ipt1');
+        var ipt2 = document.querySelector('.ipt2');
+        ipt1.onfocus = function () {
+            if (this.placeholder === '邮箱/ID/手机号') {
+                this.placeholder = '';
+
+            }
+            this.style.color = 'red';
+            this.className = 'a';
+        }
+        ipt1.onblur = function () {
+            this.placeholder = '邮箱/ID/手机号'
+        }
+        ipt2.onfocus = function () {
+            if (this.placeholder === '密码') {
+                this.placeholder = '';
+            }
+        }
+        ipt2.onblur = function () {
+            this.placeholder = '密码'
+        }
+    </script>
+</body>
+
+</html>

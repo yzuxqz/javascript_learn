@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function Person() {
+
+    }
+    function Animal() {
+
+    }
+    var person1 = new Person();
+    var person2 = new Person();
+    var animal1= new Animal();
+    var animal2 = new Animal();
+    console.log(person1.__proto__=== Person.prototype)
+    console.log(person2.__proto__=== Person.prototype)
+    console.log(person1.__proto__=== person2.__proto__)
+    console.log(person1.__proto__=== animal1.__proto__)
+    console.log(Person.prototype.__proto__===Object.prototype)
+    console.log(Person.prototype)
+    Person.prototype.a=123;
+    console.log(person1.a);//person1对象中没有a属性，通过__proto__指向Perosn构造函数中的prototype寻找a
+
+    person1.a=1;
+    console.log(person1.a);//person1对象中有a属性，直接用
+
+    Person.prototype.sayHello=function () {
+        console.log('hello')
+    }
+    person1.sayHello()
+    person1.sayHello=function () {
+        console.log('hi')
+    }
+   person1.sayHello()
+</script>
+</html>

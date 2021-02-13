@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 当我们不确定有几个参数传递时，可以用arguments来获取，只有函数才有argunments对象
+        // argunments是当前函数的一个内置对象，argunments对象中存储了传递的所有实参
+        fn(1, 2, 3);
+
+        function fn() {
+            for (var i = 0; i < arguments.length; i++) {
+              console.log(arguments[i]);
+            }
+        }
+        // arguments是一个伪数组，有如下特点：
+        // 1.具有length属性
+        // 2.按索引方式储存数据
+        // 3.不具有数据的push，pop等方法
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

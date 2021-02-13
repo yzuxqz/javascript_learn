@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .wrapper{
+            width: 100px;
+            margin: 100px auto;
+        }
+        ul{
+            height:100px;
+            width: 100px;
+        }
+        ul li:first-child{
+            height: 25px;
+            width: 100px;
+            background-color: #666559;
+        }
+        .current{
+            height: 25px;
+            overflow: hidden;
+        }
+    </style>
+    <script src="animate2.js"></script>
+    <script>
+        window.onload=function () {
+            let wrapper = document.querySelector('.wrapper')
+            let menuOne= document.querySelector('.menuOne')
+            let menuTwo =document.querySelector('.menuTwo')
+            let menuThree =document.querySelector('.menuThree')
+            menuOne.addEventListener('click',function () {
+                let begin = menuOne.offsetHeight
+                toggleClass(this,'current')
+                let end = menuOne.offsetHeight
+                menuOne.style.height=begin+'px'
+                animate(menuOne,5,end,'Height',function () {
+                    menuOne.style.height=''
+                })
+            })
+            menuTwo.addEventListener('click',function () {
+                let begin = menuTwo.offsetHeight
+                toggleClass(this,'current')
+                let end = menuTwo.offsetHeight
+                menuTwo.style.height=begin+'px'
+                animate(menuTwo,5,end,'Height',function () {
+                    menuTwo.style.height=''
+                })
+            })
+            menuThree.addEventListener('click',function () {
+                let begin = menuThree.offsetHeight
+                toggleClass(this,'current')
+                let end = menuThree.offsetHeight
+                menuThree.style.height=begin+'px'
+                animate(menuThree,5,end,'Height',function () {
+                    menuThree.style.height=''
+                })
+            })
+            function toggleClass(obj,className) {
+                let reg = /\bcurrent\b/
+                if(reg.test(obj.className)){
+                    for (let i = 0; i <wrapper.children[0].children.length ; i++) {
+                        wrapper.children[0].children[i].className='current'
+                    }
+                    obj.className=''
+                }else{
+                    obj.className += ' '+className
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <div>
+        <ul class="menuOne">
+            <li>
+                <span>一级菜单1</span>
+            </li>
+            <li>
+                <a href="#">二级菜单1</a>
+            </li>
+            <li>
+                <a href="#">二级菜单2</a>
+            </li>
+            <li>
+                <a href="#">二级菜单3</a>
+            </li>
+        </ul>
+        <ul class="menuTwo">
+            <li >
+                <span>一级菜单2</span>
+            </li>
+            <li>
+                <a href="#">二级菜单1</a>
+            </li>
+            <li>
+                <a href="#">二级菜单2</a>
+            </li>
+            <li>
+                <a href="#">二级菜单3</a>
+            </li>
+        </ul>
+        <ul class="menuThree">
+            <li>
+                <span class="menuThree">一级菜单3</span>
+            </li>
+            <li>
+                <a href="#">二级菜单1</a>
+            </li>
+            <li>
+                <a href="#">二级菜单2</a>
+            </li>
+            <li>
+                <a href="#">二级菜单3</a>
+            </li>
+        </ul>
+    </div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+</body>
+</html>

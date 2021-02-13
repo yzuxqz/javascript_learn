@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 利用字面量创建对象
+        // 对象字面量：就是{}里面包含了这个具体事务的属性和方法
+        var obj = {}; //创建了一个空的对象
+        var obj = {
+            uname: '许钱洲', //里面的属性方法采取键值对的形式
+            age: 18,
+            sex: '男',
+            sayHi: function () { //方法冒号后面跟的是一个人匿名函数
+                console.log('hi');
+            }
+        }
+
+        //利用 new Object 创建对象
+        var obj2 = new Object(); //一个空对象
+        obj2.uname = '张三丰';
+        obj2.sayHi = function () {
+            console.log('hi');
+        };
+
+        //利用  =  赋值的方法添加属性和方法  每个属性之间分号结束
+
+        //构造函数创建对象  可以把对象中公共的属性和方法封装到这个函数中
+        //四大天王 相同的属性：名字 年龄 性别 相同的方法：唱歌
+        // function 构造函数名() {
+        //     this.属性 = 值;
+        //     this.方法 = function () {}
+        // }
+        // new 构造函数名();
+
+        //1.构造函数 明星 泛指的某一大类 类似于class
+        //2.对象是一个具体的事物 刘德华
+        //new关键字执行过程
+        // 1.首先在内存中创建一个空对象 
+        // 2.this都会指向创建的对象
+        // 3.执行构造函数里面的代码 给空对象添加属性和方法
+        // 4.返回这个对象（所以构造函数里不需要return）
+        function Star(uname, age, sex) { //构造函数首字母大写
+            this.name = uname;
+            this.age = age;
+            this.sex = sex;
+            this.sing = function (songs) {
+                console.log(songs);
+            }
+        }
+        var ldh = new Star('刘德华', 19, '男'); //构造函数不需要return
+        ldh.sing('冰雨');
+
+        //使用对象
+        // （1）调用对象的属性
+        console.log(obj.uname);
+        //（2）另一种方法 对象名【’属性名‘】
+        console.log(obj['age']);
+        //（3）调用对象的方法
+        obj.sayHi()
+
+        //遍历对象
+        for (const key in ldh) {
+           console.log(key);//输出属性名
+           console.log(ldh[key]);//输出属性值
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

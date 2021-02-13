@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <button>点击</button>
+    <div></div>
+    <script>
+        var str = '     dfdfd      ';
+        console.log(str.trim());
+        console.log(str);
+
+        var input = document.querySelector('input');
+        var btn = document.querySelector('button');
+        var div = document.querySelector('div');
+        btn.onclick = function () {
+            if (input.value.trim() === '') {
+                alert('null')
+            } else {
+                div.innerHTML = input.value;
+            }
+        }
+    </script>
+</body>
+
+</html>

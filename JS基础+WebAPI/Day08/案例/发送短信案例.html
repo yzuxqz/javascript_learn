@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <button>发送验证码</button>
+    <script>
+        var btn = document.querySelector('button');
+        btn.addEventListener('click', function () {
+            btn.disabled = 'disabled';
+            var times = 5;
+            var time1 = setInterval(function () {
+                btn.innerHTML = times;
+                times--;
+                console.log(times);
+                if (times == -1) {
+                    clearInterval(time1);
+                    btn.disabled = '';
+                    btn.innerHTML = '发送验证码';                    
+                }
+                
+            }, 1000);
+        })
+       
+        
+        
+    </script>
+</body>
+
+</html>         

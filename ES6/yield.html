@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //可以传参
+    function* show() {
+        alert('a')
+        let a = yield
+        alert('b')
+        console.log(a)
+        return 20
+    }
+
+    let genObj = show()//yield之前函数传参
+    genObj.next(12)//没法给yield传参，执行函数开始到第一个yield，此时yield有值，但是并没有给变量a
+    console.log(genObj.next(10))//执行yield往后的代码，let a是在yield之后
+
+    //可以返回
+    function* show2() {
+        alert('a')
+        yield 12
+        alert('b')
+        return 55
+    }
+    let genObj2 = show2()
+    let res1 = genObj2.next()
+    console.log(res1)
+    let res2 = genObj2.next()//这里的结果是通过函数中的return得到的
+    console.log(res2)
+</script>
+</html>

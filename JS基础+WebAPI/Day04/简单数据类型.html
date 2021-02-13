@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //null特殊
+        var timer = null;
+        console.log(typeof timer); //返回一个空对象
+        //如果有个变量我们以后打算存储对象，暂时没想好放啥，这个时候就给null
+
+        //简单类型（string number boolean undefined null）传参是把 变量在栈空间里的值复制了一份给形参，在方法内部对形参做修改不会影响外部变量
+        function fn(a) {
+            a++;
+            console.log(a); //11
+        }
+        var x = 10;
+        fn(x);
+        console.log(x); //10
+
+        //复杂类型传参
+        //传递的是地址所以外部变量的值会变
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

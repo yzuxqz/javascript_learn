@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //简单的计算器
+        var num1 = parseFloat(prompt('请输入第一个数'));
+        var num2 = parseFloat(prompt('请输入第二个数'));
+        var operator = prompt('请输入运算符');
+        alert(add(num1, num2, operator));
+
+        function add(num1, num2, operator) {
+            switch (operator) {
+                case '+':
+                    return num1 + num2;
+                case '-':
+                    return num1 - num2;
+                case '*':
+                    return num1 * num2;
+                case '/':
+                    return num1 / num2;
+                default:
+                    break;
+            }
+        }
+
+        //判断是否是素数并返回
+        var num = parseInt(prompt('请输入一个正整数'));
+        alert(isPrime(num));
+
+        function isPrime(num) {
+            for (var i = 2; i <= num; i++) {
+                if (num % i == 0) {
+                    return '不是素数';
+                } else {
+                    return '是素数';
+                }
+
+            }
+        }
+
+        //利用函数封装，翻转任意一个数组、
+        console.log(change([1, 2, 3, 4, 5, 6]));
+
+        function change(arr) {
+            var arr2 = [];
+            for (var i = 0; i < arr.length; i++) {
+                arr2[arr.length - 1 - i] = arr[i];
+            }
+            return arr2;
+        }
+
+        //利用函数封装，对数组进行冒泡排序
+        console.log(sort([1, 3, 4, 6, 7, 84, 3, 445, 6, 3]));
+
+        function sort(arr) {
+            for (var i = 0; i < arr.length - 1; i++) {
+                for (var j = 0; j < arr.length - i - 1; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        var temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
+
+        //利用函数封装，判断闰年
+        console.log(isRunNian(2020));
+
+        function isRunNian(year) {
+            if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        //用户输入年份，输出当前二月饭的天数
+        console.log(secondDays(2020));
+
+        function secondDays(year) {
+            if (isRunNian(year)) {
+                return 29;
+            } else {
+                return 28;
+            }
+        }
+
+        //翻转任意数组
+        var arr2 = arrChange([1, 34, 4, 45, 98]);
+        for (var i = 0; i < arr2.length; i++) {
+            console.log(arr2[i]);
+        }
+
+        function arrChange(arr) {
+            if (arr instanceof Array) {
+                var arr2 = [];
+                for (var i = 0; i < arr.length; i++) {
+                    arr2[arr.length - 1 - i] = arr[i];
+                }
+                return arr2;
+            } else {
+                return ' 这个参数必须是数组格式'
+            }
+        }
+
+        //实现对数字数组的排序
+        var arr2 = sort([2, 3, 55, 56, 4, 7, 2, 2, 54, 4, 2, 5])
+        console.log(arr2);
+
+        function sort(arr) {
+            for (var i = 0; i < arr.length - 1; i++) {
+                for (var j = 0; j < arr.length - 1 - i; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        var temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
+
+        //简易计算器
+        do {
+            var choose = prompt('欢迎使用简易计算器：\n1.加法运算:\n2.减法运算：\n3.乘法运算：\n4.除法运算：\n5.退出：\n请输入您的选项：\n');
+            switch (choose) {
+                case '1':
+                    var num1 = parseFloat(prompt('请输入第一个数：'));
+                    var num2 = parseFloat(prompt('请输入第二个数：'));
+                    alert(add(num1, num2));
+                    break;
+                case '2':
+                    var num1 = parseFloat(prompt('请输入第一个数：'));
+                    var num2 = parseFloat(prompt('请输入第二个数：'));
+                    alert(minus(num1, num2));
+                    break;
+                case '3':
+                    var num1 = parseFloat(prompt('请输入第一个数：'));
+                    var num2 = parseFloat(prompt('请输入第二个数：'));
+                    alert(cheng(num1, num2));
+                    break;
+                case '4':
+                    var num1 = parseFloat(prompt('请输入第一个数：'));
+                    var num2 = parseFloat(prompt('请输入第二个数：'));
+                    alert(chu(num1, num2));
+                    break;
+                case '5':
+                    alert('再见')
+                    break;
+                default:
+                    break;
+            }
+        } while (choose != '5')
+
+        function add(num1, num2) {
+            return num1 + num2;
+        }
+
+        function minus(num1, num2) {
+            return num1 - num2;
+        }
+
+        function cheng(num1, num2) {
+            return num1 * num2;
+        }
+
+        function chu(num1, num2) {
+            return num1 / num2;
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

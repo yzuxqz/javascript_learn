@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1. 创建数组（Array）
+        // 利用new创建数组
+        var arr = new Array(1,2,3,4,5);
+        //利用数组字面量创建数组
+        var arr = []; //创建一个空数组
+        var arr = ['第一个元素', '第二个元素', true, 12]; //可以放任意类型的元素
+        console.log(arr);
+
+        // 2.获取数组中的元素
+        console.log(arr[0]);
+        console.log(arr[4]); //没有该元素时，输出undefinded
+
+        //3. 遍历数组
+        for (var i = 0; i < arr.length; i++) {
+            console.log(arr[i]);
+        }
+
+        // 4. 数组中新增长度
+
+        
+        //修改length属性
+        console.log(arr.length);
+        arr.length = 5;
+        console.log(arr[4]);
+        console.log(arr.length);
+        //增加索引号
+        arr[10] = 'pink';
+        console.log(arr.length);
+        console.log(arr);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

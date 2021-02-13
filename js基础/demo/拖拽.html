@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            position: absolute;
+        }
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            top: 200px;
+            left: 200px;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            let box1 = document.querySelector('.box1')
+            let box2 = document.querySelector('.box2')
+            box1.addEventListener('mousedown', function (e) {
+                let left = e.clientX - box1.offsetLeft;
+                let top = e.clientY - box1.offsetTop;
+                document.onmousemove = function (e) {
+                    box1.style.left = (e.clientX-left) + 'px'
+                    box1.style.top =(e.clientY-top)+ 'px'
+                }
+                //当我们拖拽一个网页中的内容时，浏览器会默认去搜索引擎中搜索内容，此时会导致拖拽功能的异常
+                return false;//取消默认行为
+            })
+            box1.addEventListener('mouseup', function () {
+                document.onmousemove = null;
+            })
+
+            box2.addEventListener('wheel',function () {
+                alert(1)
+            })
+        }
+
+    </script>
+</head>
+<body>
+<div class="box1"></div>
+<div class="box2"></div>
+</body>
+</html>

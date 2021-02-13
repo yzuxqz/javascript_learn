@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../animate.js"></script>
+    <script src="轮播图.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        .tab {
+            position: relative;
+            width: 770px;
+            height: 296px;
+            margin: 100px auto;
+            /* overflow: hidden; */
+        }
+
+        .tab ul {
+            position: absolute;
+            width: 5390px;
+        }
+
+        .left,
+        .right {
+            display: none;
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            top: 50%;
+            margin-top: -25px;
+            background-color: rgba(0, 0, 0, .3);
+            text-align: center;
+            line-height: 50px;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+            border-radius: 0 25px 25px 0;
+
+        }
+
+        .right {
+            right: 0;
+            border-radius: 25px 0 0 25px;
+        }
+
+        .tab ul li {
+            float: left;
+        }
+
+        .tab ul li a img {
+            width: 770px;
+            height: 296px;
+        }
+
+        .circle {
+            position: absolute;
+            bottom: 10px;
+            margin-left: 50px;
+        }
+
+        .circle li {
+            float: left;
+            width: 10px;
+            height: 10px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            margin: 0 5px;
+        }
+
+        .current {
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab">
+        <a href="javascript:;" class="left">
+            <</a> <a href="javascript:;" class="right">>
+        </a>
+
+        <ul>
+            <li><a href="#"><img src="images/1.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/2.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/3.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/4.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/5.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/6.jpg" alt=""></a></li>
+        </ul>
+        <ol class="circle">
+        </ol>
+    </div>
+</body>
+
+</html>

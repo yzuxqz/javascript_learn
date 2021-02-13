@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1.删除指定的数组元素
+        var arr = [0, 434, 0, 43, 23, 4234, 4, 2, 2];
+        var arr2 = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] != 0) {
+                arr2[arr2.length] = arr[i];
+            }
+        }
+        console.log(arr2);
+
+        //2.翻转数组
+        var arr = ['fd', 'df', 'dfd', 'gh', 'hgh'];
+        var arr2 = [];
+        for (var i = 0; i < arr.length; i++) {
+            arr2[arr.length-i-1] = arr[i];    
+        }
+        console.log(arr2);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

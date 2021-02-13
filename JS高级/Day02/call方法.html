@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fn(x, y) {
+            console.log('我想吃饭');
+            console.log(this);
+            console.log(x + y);
+        }
+        var o={
+            uname:'andy'
+        }
+        fn.call(o,1,2);
+    </script>
+</body>
+
+</html>

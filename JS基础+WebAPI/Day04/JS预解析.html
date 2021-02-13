@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //JS代码由浏览器中的JS解析器来执行
+        // 分为两步：1.预解析
+        //          2.代码执行
+        // 1.预解析：把js里所有的var还有function提升到当前作用域的最前面
+        // 预解析分为 变量预解析（变量提升）和函数预解析（函数提升）
+        // （1）变量提升 就是把所有的变量声明提到当前作用域的最前面  不提升赋值操作
+        // （2）函数提升：就是所有的函数声明提到当前作用域的最前面 不调用函数
+        console.log(num);
+
+        console.log(num); //undefined 坑（变量提升）
+        var num = 10;
+
+        fn();
+
+        function fn() {
+            console.log(11);
+
+        }
+
+        fun(); //报错 坑
+        var fun = function () {
+            console.log(22);
+            //注意：函数表达式调用，必须写在函数表达式的下面
+        }
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

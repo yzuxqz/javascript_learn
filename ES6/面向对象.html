@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //ES5
+    function Star(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    Star.prototype.getInfo =function () {
+       console.log(`姓名：${this.name}\t年龄：${this.age}`);
+    }
+    let ldh = new Star('ldh',21);
+    ldh.getInfo();
+    //原型继承
+    function ManStar(sex,name,age) {
+        Star.call(this,name,age);//继承父类属性
+        this.sex = sex;
+    }
+    ManStar.prototype = new Star();
+    ManStar.prototype.constructor = Star;
+    ManStar.prototype.print=function () {
+        //调用父类的方法(子类已经重写)?
+        console.log(`\n性别：${this.sex}`);
+    }
+    ManStar.prototype.getInfo=function () {
+        console.log(`ManStar重写后的：\n姓名：${this.name}\n年龄：${this.age}\n性别：${this.sex}`)
+    }
+    let xqz = new ManStar('男','xqz',24);
+    xqz.print();
+    xqz.getInfo();
+    console.log(ManStar.prototype)
+    console.log(xqz.__proto__===ManStar.prototype);
+    console.log(ManStar.prototype.__proto__===Star.prototype)
+    //ES6
+    class Animal{
+        constructor(name,age) {
+            this.name =name;
+            this.age =age;
+        }
+        show(){
+            console.log(`姓名：${this.name}\n年龄：${this.age}`)
+        }
+    }
+    class Monkey extends Animal{
+        constructor(type,name,age) {
+            super(name,age);
+            this.type = type;
+        }
+        play(){
+            super.show();
+            console.log(`${this.type}在玩游戏`)
+        }
+    }
+    let monkey = new Monkey('猴子','孙悟空',32);
+    monkey.show();
+    monkey.play();
+</script>
+</html>

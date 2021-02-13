@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //浅拷贝
+        var obj = {
+            id: 1,
+            name: 'andy',
+            msg: {
+                age: 18
+            },
+            color: [
+                'red', 'pink'
+            ]
+        };
+        var o = {};
+        var a = {};
+        var b = {};
+        for (var k in obj) {
+            o[k] = obj[k];
+        }
+        console.log(o);
+        console.log(obj);
+        o.msg.age = 20;
+        Object.assign(a, obj);
+        console.log(a);
+
+        //深拷贝
+        function deepcopy(newer, old) {
+            for (var k in old) {
+                //判断属性值属于声明类型
+                // 1.获取
+                var item = old[k];
+
+                // 2.判断是否为数组
+                if (item instanceof Array) {
+                    newer[k] = [];
+                    deepcopy(newer[k], item)
+                } else if (item instanceof Object) {
+                    // 3.是否为对象
+                    newer[k] = {};
+                    deepcopy(newer[k], item);
+                } else {
+                    // 4.属于简单数据类型
+                    newer[k] = item;
+                }
+
+            }
+        }
+        deepcopy(b, obj);
+        console.log(b);
+        b.msg.age = 30;
+        console.log(obj);
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        console.log(countDown('2020-5-4 16:00:00'));
+
+        function countDown(time) {
+            var now = +new Date(); //返回当前时间总的毫秒数
+            var input = +new Date(time); //返回用户输入时间总的毫秒数
+            var times = (input - now) / 1000; //剩余时间中的秒数
+            var day = parseInt(times / 60 / 60 / 24);
+            day = day < 10 ? '0' + day : day;
+            var hour = parseInt(times / 60 / 60 % 24);
+            hour = hour < 10 ? '0' + hour : hour;
+            var minus = parseInt(times / 60 % 60);
+            minus = minus < 10 ? '0' + minus : minus;
+            var seconds = parseInt(times % 60);
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+            return day + '天' + hour + '小时' + minus + '分钟' + seconds + '秒'
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

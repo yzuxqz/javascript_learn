@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //有一个对象
+        // var o = {
+        //     age: 18
+        // }
+        // if (o['age']) {
+        //     console.log('有');
+
+        // } else {
+        //     console.log('没有');
+
+        // }
+
+        //核心算法
+        // 利用CharAt遍历这个字符串
+        //把每个字符串都存储给对象，如果对象没有该属性，就为1，如果有了属性值+1
+        //遍历对象得到最大值和该字符
+        var str = 'abcoefoxyozzopp';
+        var obj = {};
+
+        for (var i = 0; i < str.length; i++) {
+            var n = str.charAt(i); //chars 是 字符串的每一个字符
+            if (obj[n]) { //obj[n]得到的是属性值     
+                obj[n]++;
+            } else {
+                obj[n] = 1;
+            }
+        }
+        console.log(obj);
+
+        for (var i = 0; i < str.length; i++) {
+            if (obj[str[i]]) { //obj[n]得到的是属性值     
+                obj[str[i]]++;
+            } else {
+                obj[str[i]] = 1;
+            }
+        }
+        console.log(obj);
+        //遍历对象
+        var max = 0;
+        var ch = '';
+        for (var k in obj) {
+            //k得到的是属性名
+            //obj[k]得到属性值
+            if (obj[k] > max) {
+                max = obj[k];
+                ch = k;
+            }
+        }
+        console.log(max);
+        console.log(ch);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

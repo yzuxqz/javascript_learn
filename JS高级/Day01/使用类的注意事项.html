@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>
+        唱歌
+    </button>
+    <script>
+        var that;
+        class Father {
+            //构造器里面的this指向实例对象
+            constructor(uname, age) {
+                that = this;
+                this.uname = uname;
+                this.age = age;
+                // this.sing();
+                this.btn = document.querySelector('button');
+                this.btn.onclick = this.sing;//因为这个按钮调用了这个函数
+            }
+            //这个方法里的this 指向的是btn 这个按钮
+            sing() {
+                // console.log(this.uname);
+                console.log(that.uname); //that 里面存储的是constructor里面的this
+            }
+        }
+        var father = new Father('刘德华');
+    </script>
+</body>
+
+</html>

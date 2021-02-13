@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="number">
+<button id="btn">计算</button>
+</body>
+<script>
+    window.onload=function(){
+        document.querySelector('#btn').addEventListener('click',function () {
+            let number = document.querySelector('#number').value
+            //创建一个Worker对象
+            let worker = new Worker('worker.js')
+            //向worker发送消息
+            worker.postMessage(number)
+            let a
+            //接收worker传过来的数据函数
+            worker.onmessage= function (event) {
+               a=event.data
+            }
+            console.log(1)
+
+        })
+    }
+</script>
+</html>

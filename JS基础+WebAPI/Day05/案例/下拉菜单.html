@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        .box2 {
+            width: 50px;
+            height: 25px;
+            background-color: pink;
+        }
+
+        .box2::after {
+            float: right;
+            content: '>';
+            display: block;
+        }
+
+        .box3 {
+            display: none;
+        }
+
+        .box3 li {
+            width: 50px;
+            height: 25px;
+            background-color: purple;
+        }
+
+        .box3 li:hover {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div class="box2">微博</div>
+        <div class="box3">
+            <ul>
+                <li>私信</li>
+                <li>评论</li>
+                <li>@我</li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script>
+    var box2 = document.querySelector('.box2');
+    var box3 = document.querySelector('.box3');
+    box2.onclick = function () {
+        // if (box3.style.display === 'none') {
+        //     box3.style.display = 'block';
+        // }
+        // else{
+        //     box3.style.display = 'none';
+        // }
+        if (box3.style.display === 'none') {
+            box3.style.display = 'block';
+        } else {
+            box3.style.display = 'none';
+        }
+    }
+</script>
+
+</html>

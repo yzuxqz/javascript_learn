@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            let box1 = document.querySelector('.box1')
+            let timer
+            let dir
+            document.addEventListener('keydown', function (e) {
+                dir = e.key
+                let speed = 10;
+                clearInterval(timer)
+                timer = setInterval(function () {
+                    if (dir === 'ArrowUp') {
+                        box1.style.top = (box1.offsetTop - speed) + 'px'
+                    } else if (dir === 'ArrowDown') {
+                        box1.style.top = (box1.offsetTop + speed) + 'px'
+                    } else if (dir === 'ArrowLeft') {
+                        box1.style.left = (box1.offsetLeft - speed) + 'px'
+                    } else if (dir === 'ArrowRight') {
+                        box1.style.left = (box1.offsetLeft + speed) + 'px'
+                    }
+                }, 30)
+            })
+            document.addEventListener('keyup', function () {
+                dir = 0;
+            })
+        }
+    </script>
+</head>
+<body>
+<div class="box1"></div>
+</body>
+</html>

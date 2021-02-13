@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #efeeee;
+            font-size: 30px;
+            color: #fb7299;
+        }
+
+        .box {
+            width: 450px;
+            height: 400px;
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+        }
+
+        ul {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        li {
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            box-sizing: border-box;
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+
+            /* 新拟态 */
+            box-shadow: 20px 20px 30px rgba(0, 0, 0, .1),
+                -20px -20px 30px rgba(255, 255, 255, .1);
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+
+        li:hover {
+            /* 新拟态 */
+            box-shadow: 0 0 0 rgba(0, 0, 0, .2),
+                0 0 0 rgba(255, 255, 255, 1),
+                inset 20px 20px 30px rgba(0, 0, 0, .1),
+                inset -20px -20px 30px rgba(255, 255, 255, 1);
+        }
+
+        img {
+            width: 60px;
+            height: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li><img src="images/icon_uk319tftv1r/food-hotdog.png" alt=""></li>
+            <li><img src="images/icon_uk319tftv1r/food-bread.png" alt=""></li>
+            <li><img src="images/icon_uk319tftv1r/food-cake.png" alt=""></li>
+            <li><img src="images/icon_uk319tftv1r/food-cashew.png" alt=""></li>
+            <li><img src="images/icon_uk319tftv1r/food-chips.png" alt=""></li>
+            <li><img src="images/icon_uk319tftv1r/food-cookie.png" alt=""></li>
+            <li><img src="images/icon_uk319tftv1r/food-doughnut.png" alt=""></li>
+            <li><img src="images/icon_uk319tftv1r/food-eggyolkcake.png" alt=""></li>
+            <li><img src="images/icon_uk319tftv1r/food-hotdog.png" alt=""></li>
+
+        </ul>
+    </div>
+</body>
+
+</html>

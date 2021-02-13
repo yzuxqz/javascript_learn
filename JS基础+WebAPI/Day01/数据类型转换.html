@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 一.转为字符串
+        // 1.toString()
+        var num = 1;
+        var str = num.toString();
+        console.log(typeof str);
+        // 2.String(变量)
+        console.log(typeof String(num));
+        //3.利用+拼接字符串
+        console.log(typeof (num + ''));
+
+        // 二.转为数字型
+        //1.parseInt(string)
+        var age = prompt('请输入年龄');
+        var a = parseInt(age);
+        console.log(typeof a);
+        //取整
+        console.log(parseInt('3.55'));
+        console.log(parseInt('120px')); //120
+        console.log(parseInt('em120px')); //NaN
+        // 2.parseFloat(string)
+        var age = prompt('请输入日期');
+        var a = parseFloat(age);
+        console.log(a);
+        console.log(typeof a);
+        //浮点
+        console.log(parseFloat('3.1243'));
+        // 3.Number()
+        console.log(Number('12.32px')); //NaN
+        // 4.js隐式转换(- * /)
+        console.log(typeof('12px' - 0));
+        console.log(typeof('123' - '119'));
+
+        //三.转为boolean
+        console.log(Boolean(''));
+        console.log(Boolean(0));
+        console.log(Boolean(NaN));
+        console.log(Boolean(null));
+        console.log(Boolean(undefined));
+
+        console.log(Boolean('123'));
+        console.log(Boolean('hello'));
+       
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

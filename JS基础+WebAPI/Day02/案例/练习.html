@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //99乘法表
+        var str = '';
+        for (var i = 1; i <= 9; i++) {
+            for (var j = 1; j <= i; j++) {
+                str += i + '*' + j + '=' + i * j
+            }
+            str += '\n'
+        }
+        console.log(str);
+
+        //登陆
+        // do {
+        //     var userName = prompt('请输入用户名');
+        //     var userPassword = prompt('请输入密码');
+        // }
+        // while (userName !== 'admin' && userPassword !== '123456')
+
+        //累加
+        var sum = 0;
+        for (var i = 1; i <= 100; i++) {
+            if (i % 10 == 3) {
+                continue;
+            }
+            console.log(i);
+
+            sum += i
+        }
+        console.log(sum);
+
+        //简易ATM
+        var money = 0;
+        var n;
+        do {
+            var input = prompt('请输入您要的操作：\n1.存钱\n2.取钱\n3.显示余额\n4.退出');
+            switch (input) {
+                case '1':
+                    var add = parseInt(prompt('你要存多少钱'));
+                    money += add;
+                    alert('您目前余额' + money + '元');
+                    break;
+                case '2':
+                    var minus = parseInt(prompt('你要取多少钱'));
+                    money -= minus;
+                    alert('您目前余额' + money + '元');
+                    break;
+                case '3':
+                    alert('您的余额为：' + money);
+                    break;
+                case '4':
+                    alert('拜拜');
+                    break;
+            }
+        } while (input != 4)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

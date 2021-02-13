@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>代码</td>
+                <td>名称</td>
+                <td>最新公布净值</td>
+                <td>累计净值</td>
+                <td>当前单位净值</td>
+                <td>净值增长率</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>002334</td>
+                <td>的恢复和捷克首都和房价快速导航</td>
+                <td>32423</td>
+                <td>34342</td>
+                <td>23424</td>
+                <td>3243423</td>
+            </tr>
+            <tr>
+                <td>002334</td>
+                <td>的恢复和捷克首都和房价快速导航</td>
+                <td>32423</td>
+                <td>34342</td>
+                <td>23424</td>
+                <td>3243423</td>
+            </tr>
+            <tr>
+                <td>002334</td>
+                <td>的恢复和捷克首都和房价快速导航</td>
+                <td>32423</td>
+                <td>34342</td>
+                <td>23424</td>
+                <td>3243423</td>
+            </tr>
+            <tr>
+                <td>002334</td>
+                <td>的恢复和捷克首都和房价快速导航</td>
+                <td>32423</td>
+                <td>34342</td>
+                <td>23424</td>
+                <td>3243423</td>
+            </tr>
+            <tr>
+                <td>002334</td>
+                <td>的恢复和捷克首都和房价快速导航</td>
+                <td>32423</td>
+                <td>34342</td>
+                <td>23424</td>
+                <td>3243423</td>
+            </tr>
+            <tr>
+                <td>002334</td>
+                <td>的恢复和捷克首都和房价快速导航</td>
+                <td>32423</td>
+                <td>34342</td>
+                <td>23424</td>
+                <td>3243423</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+<script>
+    var trs = document.querySelector('tbody').querySelectorAll('tr');
+    for (let i = 0; i < trs.length; i++) {
+        //鼠标经过
+        trs[i].onmouseover = function () {
+            console.log('2');
+            this.className = 'bg';
+        }
+        //鼠标离开
+        trs[i].onmouseout = function () {
+            this.className = '';
+        }
+
+    }
+</script>
+
+</html>

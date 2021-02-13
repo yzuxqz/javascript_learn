@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>6666666666</li>
+        <li>6666666666</li>
+        <li>6666666666</li>
+        <li>6666666666</li>
+        <li>6666666666</li>
+    </ul>
+    <ul id="nav">
+        <li>5555555555</li>
+        <li>5555555555</li>
+        <li>5555555555</li>
+        <li>5555555555</li>
+        <li>5555555555</li>
+    </ul>
+    <script>
+        //1.返回的是 获取过来的元素对象的集合 以伪数组形式存储
+        var a = document.getElementsByTagName('li');
+        console.log(a);
+        console.log(a[0]);
+        //2.遍历元素对象
+        for (var i = 0; i < a.length; i++) {
+            console.log(a[i]);
+        }
+
+        //3.elememt.getElementsByTagName() 可以得到这个元素里面的某些标签
+        //先获得父元素，再获取父元素里的子元素
+        var c = document.getElementById('nav');
+        var b = c.getElementsByTagName('li');
+        console.log(b[0]);
+    </script>
+</body>
+
+</html>

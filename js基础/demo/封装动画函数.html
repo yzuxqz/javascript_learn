@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            position: absolute;
+        }
+
+        .line {
+            width: 2px;
+            height: 800px;
+            position: absolute;
+            left: 800px;
+            background-color: black;
+        }
+
+        button {
+            float: right;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            let box1 = document.querySelector('.box1')
+            let left = document.querySelector('.left')
+            let right = document.querySelector('.right')
+            let timer
+
+            function animate(obj,speed,target,style,callback) {
+                let currentValue
+                clearInterval(timer)
+                if(target<obj.offsetLeft){
+                    speed = -speed
+                }
+
+                timer = setInterval(function () {
+                    let oldValue = obj.offsetLeft
+                    console.log(oldValue)
+                    currentValue = oldValue + speed
+                    if (speed>0&&currentValue > target||speed<0&&currentValue<target) {
+                        currentValue = target
+                    }
+                    obj.style[style] = currentValue + 'px'
+                    if(currentValue===target){
+                        clearInterval(timer)
+                    }
+                }, 30,function () {
+                    callback && callback()
+                })
+
+            }
+
+            right.addEventListener('click', function () {
+                animate(box1,10,800,'left',function () {
+                    animate(box1,10,800,'top')
+                })
+            })
+            left.addEventListener('click',function () {
+                animate(box1,10,0,'width')
+            })
+        }
+    </script>
+</head>
+<body>
+<div class="box1"></div>
+<button class="left">向左</button>
+<button class="right">向右</button>
+<div class="line"></div>
+</body>
+</html>

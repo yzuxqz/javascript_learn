@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .w {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .alert {
+            display: block;
+            font-size: 30px;
+            color: black;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .form {
+            display: none;
+            position: relative;
+            margin-top: 100px;
+            width: 400px;
+            height: 250px;
+        }
+
+        .box ul li {
+            height: 60px;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        .box ul li label {
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+        }
+
+        .close {
+            display: block;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: #fff;
+            text-align: center;
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <a href="#" class="alert w">点击，弹出登录框</a>
+        <div class="form w">
+            <ul>
+                <li id="title">登陆会员</li>
+                <li>
+                    <label for="username">用户名：</label>
+                    <input type="text">
+                </li>
+                <li>
+                    <label for="username">登陆密码：</label>
+                    <input type="password">
+                </li>
+                <li>
+                    <a href="#">登陆会员</a>
+                </li>
+            </ul>
+            <a href="#" class="close">关闭</a>
+        </div>
+    </div>
+    <script>
+        var a = document.querySelector('.alert');
+        var form = document.querySelector('.form');
+        var close1 = document.querySelector('.close');
+        var title = document.querySelector('#title');
+        a.addEventListener('click', function () {
+            form.style.display = 'block';
+        });
+        close1.addEventListener('click', function () {
+            form.style.display = 'none';
+        });
+
+        //获得鼠标在盒子内的坐标
+        title.addEventListener('mousedown', function (e) {
+            var x = e.pageX - form.offsetLeft;
+            var y = e.pageY - form.offsetTop;
+            //鼠标在页面中的坐标减去鼠标在盒子内的坐标
+            function move(e) {
+                form.style.left = e.pageX - x + 'px';
+                form.style.top = e.pageY - y + 'px';
+            }
+            document.addEventListener('mousemove',move );
+            document.addEventListener('mouseup', function () {
+                document.removeEventListener('mousemove', move);
+            })
+        })
+    </script>
+</body>
+
+</html>

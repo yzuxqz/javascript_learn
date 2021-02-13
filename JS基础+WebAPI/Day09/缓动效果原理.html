@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: greenyellow;
+        }
+
+        button {
+            margin-left: 1000px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <button class="b500">点击到500</button>
+    <button class="b800">点击到800</button>
+    <script>
+        var div = document.querySelector('div');
+        var btn500 = document.querySelector('.b500');
+        var btn800 = document.querySelector('.b800');
+
+        btn500.addEventListener('click', function () {
+            animate(div, 500);
+        });
+        btn800.addEventListener('click', function () {
+            animate(div, 800);
+        })
+
+        function animate(obj, target) {
+            //先清除以前的定时器
+            clearInterval(obj.time);
+            //给不同的元素指定不同的定时器
+            obj.time = setInterval(function () {
+                //把步长值,上下取整看正负值
+                var x = (target - obj.offsetLeft) / 10;
+                if (x >= 0) {
+                    x = Math.ceil(x);
+                } else {
+                    x = Math.floor(x);
+                }
+                if (obj.offsetLeft == target) {
+                    clearInterval(obj.time);
+                } else {
+                    //把1改为一个慢慢变小的值（目标值-现在的位置）/10
+                    obj.style.left = obj.offsetLeft + x + 'px';
+                }
+            }, 15)
+        };
+    </script>
+</body>
+
+</html>

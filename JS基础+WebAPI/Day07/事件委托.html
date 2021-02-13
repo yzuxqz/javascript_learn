@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>2342</li>
+        <li>2342</li>
+        <li>2342</li>
+        <li>2342</li>
+        <li>2342</li>
+    </ul>
+    <script>
+        var ul = document.querySelector('ul');
+        ul.addEventListener('click', function (e) {
+            //排他
+            for (var i = 0; i < ul.children.length; i++) {
+                ul.children[i].style.backgroundColor = '';
+            }
+            //得到你点击的小li
+            e.target.style.backgroundColor = 'pink'
+        })
+    </script>
+</body>
+
+
+</html>

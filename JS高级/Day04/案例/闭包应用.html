@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul class="nav">
+        <li>0</li>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        var lis = document.querySelector('.nav').querySelectorAll('li');
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].setAttribute('index', i);
+            lis[i].addEventListener('click', function () {
+                console.log(this.getAttribute('index'));
+            })
+        }
+
+        for (let i = 0; i < lis.length; i++) {
+            lis[i].addEventListener('click', function () {
+                console.log(i);
+            })
+        }
+        ///利用闭包
+        for (var i = 0; i < lis.length; i++) {
+            //创建了4个立即执行函数
+            (function (num) {
+                // console.log(i);
+                lis[num].onclick = function () {
+                    console.log(num);
+                }
+            })(i)
+        }
+    </script>
+</body>
+
+</html>

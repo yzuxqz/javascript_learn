@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star(uname, age) {
+            this.uname = uname;
+            this.age = age;
+        }
+        //Star.prototype被对象赋值覆盖了，所以没有了constructor属性
+        Star.prototype = {
+            constructor: Star,
+            sing: function () {
+                console.log('我会唱歌');
+            },
+            movie: function () {
+                console.log('我演电影');
+            }
+        }
+        var ldh = new Star('刘德华', 12);
+        console.log(Star.prototype);
+        console.log(Star.prototype.__proto__ === Object.prototype);
+        console.log(Object.prototype.__proto__);
+        
+        
+        
+    </script>
+</body>
+
+</html>

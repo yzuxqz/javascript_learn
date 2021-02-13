@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 200px;
+            height: 300px;
+            background-color: aqua;
+        }
+
+        .son {
+            width: 100px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son">son盒子</div>
+    </div>
+    <script>
+        var son = document.querySelector('.son');
+        var father = document.querySelector('.father');
+        //如果第三个参数为false,则处于冒泡阶段
+        son.addEventListener('click', function (e) {
+            alert('son');
+            e.stopPropagation();
+        }, )
+        father.addEventListener('click', function () {
+            alert('father');
+        }, )
+    </script>
+
+</body>
+
+</html>

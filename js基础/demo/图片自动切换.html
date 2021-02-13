@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    window.onload = function () {
+        let img = document.querySelector(".img-wrapper img")
+        let start = document.querySelector(".start ")
+        let stop = document.querySelector(".stop")
+        let span = document.querySelector("span")
+        let arr = ["../public/1.jpg", "../public/2.jpg", "../public/3.jpg", "../public/4.jpg", "../public/5.jpg"]
+        let i = 0
+        let timer;
+        start.addEventListener('click', function () {
+            clearInterval(timer)
+            timer = setInterval(function () {
+                i++
+                i %= arr.length
+                img.src = arr[i]
+                span.innerHTML = '共有' + arr.length + '张，这是第' + (i + 1) + '张'
+            }, 1000)
+        })
+        stop.addEventListener('click', function () {
+            clearInterval(timer)
+        })
+    }
+</script>
+<body>
+<div class="img-wrapper">
+    <img src="../public/1.jpg" alt="">
+    <button class="start">开始</button>
+    <button class="stop">停止</button>
+    <br>
+    <span>共有5张，这是第1张</span>
+</div>
+</body>
+</html>

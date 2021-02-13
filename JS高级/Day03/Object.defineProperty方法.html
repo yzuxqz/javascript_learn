@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            id: 1,
+            pname: '小米',
+            price: 1999,
+            num: 2000
+        }
+        // 以前的方式
+        // obj.num = 1000;
+        // console.log(obj);
+
+        Object.defineProperty(obj, 'num', {
+            value: 20000,
+            writable: false,
+            enumerable: false,
+            configurable: false
+        })
+        delete obj.num;
+        console.log(obj);
+    </script>
+</body>
+
+</html>

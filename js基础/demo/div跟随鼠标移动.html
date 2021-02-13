@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            height: 1000px;
+        }
+
+        div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            let div = document.querySelector('div')
+            let body = document.body;
+            body.addEventListener('mousemove', function (e) {
+                div.style.left = (e.pageX - 100) + "px";
+                div.style.top = (e.pageY - 100) + "px";
+            })
+        }
+    </script>
+</head>
+<body>
+<div></div>
+</body>
+</html>

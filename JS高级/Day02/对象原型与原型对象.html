@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star(uname, age) {
+            this.uname = uname;
+            this.age = age;
+        }
+        console.log(Star);
+        //Star.prototype被对象赋值覆盖了，所以没有了constructor属性
+        Star.prototype = {
+            constructor: Star,
+            sing: function () {
+                console.log('我会唱歌');
+            },
+            movie: function () {
+                console.log('我演电影');
+            }
+        }
+        console.log(Star);
+        var ldh = new Star('刘德华', 12);
+        var zxy = new Star('张学友', 12);
+        // ldh.sing();
+        //对象身上有————proto————属性，对象原型，指向prototype
+        // console.log(ldh);
+        // 构造函数里有prototype属性，原型对象
+        console.log(ldh.__proto__);
+        console.log(Star.prototype);
+        // console.log(ldh.__proto__ === Star.prototype);
+
+        console.log(Star.prototype.constructor);
+        console.log(ldh.__proto__.constructor);
+        //很多情况需要手动将constructor指向原来的构造函数
+    </script>
+</body>
+
+</html>

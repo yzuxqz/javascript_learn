@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li {
+            width: 120px;
+            height: 150px;
+            list-style-type: none;
+            background: url(../images/abcd.jpg) no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        //1。获取元素
+        var li = document.querySelectorAll('li');
+        for (var i = 0; i < li.length; i++) {
+            //让索引号 乘以44 就是li的背景y坐标
+            index = i * 44;
+            li[i].style.backgroundPosition = '0 -' + index + 'px';
+
+        }
+    </script>
+</body>
+
+</html>

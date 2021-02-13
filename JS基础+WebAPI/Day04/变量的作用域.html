@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //1.全局变量
+        // 注意：如果在函数内部没有声明的变量，也是全局变量
+        var num = 10;
+
+        function fn() {
+            //在全局下都可使用
+            console.log(num);
+        }
+        fn();
+
+        //2.局部变量、
+        //注意：函数的形参也是局部变量
+        function name(params) {
+            //只能在函数内部使用
+            var num1 = 10;
+            //没有声明，所以是全局变量
+            num2 = 20;
+        }
+
+        // 3.全局变量只有在浏览器关闭时才会销毁，比较占内存资源
+        //   局部变量在程序执行完毕时就会销毁，比较节约内存资源
+    
+    //es6的时候才有块级作用域
+    //块级作用域{} if{} for{}
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

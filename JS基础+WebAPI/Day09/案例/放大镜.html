@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .small {
+            width: 500px;
+            height: 500px;
+            position: relative;
+            background-color: red;
+            background: url(images/account.png);
+
+        }
+
+        .lager {
+            display: none;
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            background-color: yellow;
+            opacity: .5;
+            cursor: move;
+        }
+
+        .big {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 1500px;
+            width: 500px;
+            height: 500px;
+            background-color: aqua;
+            background: url(images/account.png);
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+        .big img{
+position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="small">
+        <div class="lager"></div>
+    </div>
+    <div class="big">
+        <img src="images/account.png" alt="">
+    </div>
+    <script>
+        var small = document.querySelector('.small');
+        var lager = document.querySelector('.lager');
+        var big = document.querySelector('.big');
+        //鼠标经过显示和隐藏
+        small.addEventListener('mouseover', function () {
+            lager.style.display = 'block';
+            big.style.display = 'block';
+        });
+        small.addEventListener('mouseout', function () {
+            lager.style.display = 'none';
+            big.style.display = 'none';
+        })
+
+        small.addEventListener('mousemove', function (e) {
+            //1.获得鼠标在盒子内的坐标
+            var x = e.pageX - this.offsetLeft;
+            var y = e.pageY - this.offsetTop;
+
+            //2.减去盒子高度 300的一半 是150 就是放大镜最终left华人top值了
+            //3.放大镜移动的距离
+            var maskx = x - lager.offsetWidth / 2;
+            var masky = y - lager.offsetHeight / 2;
+            //4。如果x坐标小于0，就停止
+            if (maskx <= 0) {
+                maskx = 0;
+            }
+            if (maskx >= 200) {
+                maskx = 200;
+            }
+            if (masky <= 0) {
+                masky = 0;
+            }
+            if (masky >= 200) {
+                masky = 200;
+            }
+            lager.style.left = maskx + 'px';
+            lager.style.top = masky + 'px';
+
+            //5.大图片的移动距离=遮挡层移动距离*大图片最大移动距离/遮挡层的最大移动距离
+            var bigx = maskx * 300 / 200;
+            var bigy = masky * 300 / 200;
+            big.style.left = -bigx + 'px';
+            big.style.top = -bigy + 'px';
+        })
+    </script>
+</body>
+
+</html>

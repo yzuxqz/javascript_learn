@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+
+        }
+
+        .tab_list ul {
+            overflow: hidden;
+        }
+
+        .tab_list ul li {
+            float: left;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            padding: 0 10px;
+        }
+
+        .current {
+            background-color: red;
+            color: #fff;
+        }
+
+        .item {
+            display: none;
+        }
+    </style>
+
+<body>
+    <div class="father">
+        <div class="tab_list">
+            <ul>
+                <li class="current">商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价（50000）</li>
+                <li>手机社区</li>
+            </ul>
+        </div>
+        <div class="tab_con">
+            <div class="item" style="display: block;">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+        </div>
+    </div>
+    <script>
+        var lis = document.querySelector('.tab_list').getElementsByTagName('li');
+        var divs = document.querySelector('.tab_con').getElementsByTagName('div');
+        for (let i = 0; i < lis.length; i++) {
+            //给五个小li设置索引号,i的作用域就到这里
+            lis[i].setAttribute('index', i);
+            lis[i].onclick = function () {
+                for (var i = 0; i < lis.length; i++) {
+                    lis[i].className = '';
+                }
+                this.className = 'current';
+                //显示内容
+                var index = this.getAttribute('index');
+                for (var i = 0; i < divs.length; i++) {
+                    divs[i].style.display = 'none';
+                }
+                divs[index].style.display = 'block';
+            }
+        }
+    </script>
+</body>
+
+</html>

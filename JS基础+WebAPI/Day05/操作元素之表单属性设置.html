@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <input type="text" value="请输入内容">
+    <script>
+        var btn = document.querySelector('button');
+        var input = document.querySelector('input');
+        btn.onclick = function () {
+            //修改表单里的值
+            input.value = '999';
+            //禁用按钮
+            btn.disabled = true;
+            //或者 this指向的是函数的调用者
+            this.disabled = true;
+        }
+    </script>
+</body>
+
+</html>

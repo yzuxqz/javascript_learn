@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    window.onload=function () {
+        let img = document.querySelector(".img-wrapper img")
+        let pre = document.querySelector(".pre ")
+        let next  = document.querySelector(".next")
+        let span = document.querySelector("span")
+        let arr = ["../public/1.jpg","../public/2.jpg","../public/3.jpg","../public/4.jpg","../public/5.jpg"]
+        let i = 0
+        pre.addEventListener('click',function () {
+            i--
+            if(i<0){
+                i=arr.length-1
+            }
+            img.src=arr[i]
+            span.innerHTML='共有'+arr.length+'张，这是第'+(i+1)+'张'
+        })
+        next.addEventListener('click',function () {
+            i++
+            if(i>arr.length-1){
+                i=0
+            }
+            img.src=arr[i]
+            span.innerHTML='共有'+arr.length+'张，这是第'+(i+1)+'张'
+        })
+    }
+</script>
+<body>
+<div class="img-wrapper">
+    <img src="../public/1.jpg" alt="">
+    <button class="pre">上一张</button>
+    <button class="next">下一张</button>
+    <br>
+    <span>共有5张，这是第1张</span>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        var div = document.querySelector('div');
+        var time = 5;
+        div.innerHTML = '您将在' + time + '秒之后跳转到首页';
+        time--;
+        setInterval(function () {
+            if (time == 0) {
+                location.href = 'http://baidu.com';
+            } else {
+                div.innerHTML = '您将在' + time + '秒之后跳转到首页';
+                time--;
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>

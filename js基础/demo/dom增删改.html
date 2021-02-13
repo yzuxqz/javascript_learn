@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            border: 1px solid black;
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid black;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .add {
+            width: 230px;
+            height: 230px;
+            border: 2px solid black;
+            margin-top: 50px;
+        }
+
+    </style>
+    <script>
+        window.onload = function () {
+            let del = document.querySelectorAll('tr td:nth-child(4)')
+            let tbody = document.querySelector('tbody')
+            let name = document.querySelector('#username')
+            let email = document.querySelector('#email')
+            let salary = document.querySelector('#salary')
+
+
+            let submit = document.querySelector('#submit')
+            submit.addEventListener('click',function () {
+                let tr = document.createElement('tr')
+                tr.innerHTML = `<td>${name.value}</td>
+                            <td>${email.value}</td>
+                            <td>${salary.value}</td>
+                            <td>
+                                <a href="#">
+                                    Delete
+                                </a>
+                            </td>`
+                tbody.appendChild(tr)
+            })
+            tbody.addEventListener('click',function (e) {
+                if(e.target.nodeName==='A'){
+                    e.preventDefault()
+                    let flag = window.confirm('确认删除'+e.target.parentNode.parentNode.children[0].innerHTML+'？')
+                    if (flag) {
+                        e.target.parentNode.parentNode.remove()
+                    }
+                }
+
+            })
+        }
+    </script>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Salary</td>
+        <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Tom</td>
+        <td>tom@tom.com</td>
+        <td>5000</td>
+        <td>
+            <a href="#">
+                Delete
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td>Jerry</td>
+        <td>jerry@jerry.com</td>
+        <td>8000</td>
+        <td>
+            <a href="#">
+                Delete
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td>bob</td>
+        <td>bob@tom.com</td>
+        <td>10000</td>
+        <td>
+            <a href="#">
+                Delete
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div class="add">
+    <div class="title">添加新员工</div>
+    <ul>
+        <li>
+            <label for="username">name</label>
+            <input type="text" id="username">
+        </li>
+        <li>
+            <label for="email">email</label>
+            <input type="text" id="email">
+        </li>
+        <li>
+
+            <label for="salary">salary</label>
+            <input type="text" id="salary">
+        </li>
+    </ul>
+    <input type="submit" id="submit">
+</div>
+</body>
+</html>

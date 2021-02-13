@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //字面量创建
+        var dog = {
+            uname: '可可',
+            type: '阿拉斯加犬',
+            age: 5,
+            color: '棕红色',
+            bark: function () {
+                console.log('汪汪汪');
+            },
+            showFilm: function showFilm() {
+                console.log('演电影');
+            },
+        };
+        dog.bark();
+
+        //new Object创建
+        var person = new Object();
+        person.uname = '鸣人';
+        person.sex = '男';
+        person.age = '13';
+        person.skill = function () {
+            console.log('影分身');
+        }
+        person.skill();
+
+        //构造函数创建对象
+        function Wzry(name, type, blood, attack) {
+            this.name = name;
+            this.type = type;
+            this.blood = blood;
+            this.attack = attack;
+        }
+
+
+        var lianPo = new Wzry('廉颇', '力量型', 500, '近战');
+        var houYi = new Wzry('后羿', '射手型', 100, '远程');
+        console.log(lianPo.name, lianPo.type, lianPo.blood, lianPo.attack);
+        console.log(houYi['name'], houYi['type'], houYi['blood'], houYi['attack']);
+
+        //电脑对象
+        function Computer(color, weight, brand, type) {
+            this.color = color;
+            this.weight = weight;
+            this.brand = brand;
+            this.type = type;
+
+            this.film = function () {
+                console.log('看电影');
+            }
+
+            this.music = function () {
+                console.log('听音乐');
+            }
+
+            this.game = function () {
+                console.log('打游戏');
+            }
+
+            this.code = function () {
+                console.log('敲代码');
+            }
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

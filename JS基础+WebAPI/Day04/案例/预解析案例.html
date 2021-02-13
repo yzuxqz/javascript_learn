@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //一
+        var num = 10;
+        fun();
+
+        function fun() {
+            console.log(num);
+            var num = 20;
+        } //undefined
+
+        //相当于
+        var num;
+
+        function fun() {
+            var num;
+            console.log(num);
+            num = 20;
+        }
+        num = 10;
+        fun();
+
+
+        //二
+        var num = 10;
+
+        function fn() {
+            console.log(num);
+            var num = 20;
+            console.log(num);
+        }
+        fn();
+
+        //想当于
+        var num;
+
+        function fn() {
+            var num;
+            console.log(num);
+            num = 20;
+            console.log(num);
+        }
+        num = 10;
+        fn();
+
+        //三
+        var a = 18;
+        f1();
+
+        function f1() {
+            var b = 9;
+            console.log(a);
+            console.log(b);
+            var a = '123';
+        }
+
+        //相当于
+        var a;
+
+        function f1() {
+            var b;
+            var a;
+            b = 9;
+            console.log(a);
+            console.log(b);
+            a = '123';
+        }
+        a = 18;
+        f1();
+
+        //四
+        f1();
+        console.log(c);
+        console.log(b);
+        console.log(h);
+
+        function f1() {
+            var h = b = c = 9;
+            //相当于 Var a=9;b=9;c=9;b和c直接赋值 没有var 当全局变量看
+            // 集体声明 var a=9，b=9,c=9;
+            console.log(h);
+            console.log(b);
+            console.log(c);
+        }
+
+        //相当于
+        function f1() {
+            var h;
+            h = 9;
+            b = 9;
+            c = 9;
+            console.log(h);
+            console.log(b);
+            console.log(c);
+        }
+        f1();
+        console.log(c);
+        console.log(b);
+        console.log(h);//此处报错
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

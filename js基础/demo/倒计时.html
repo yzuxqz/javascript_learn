@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="layui.css">
+</head>
+<style>
+
+
+
+
+    .countdown {
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    .time {
+        width: 1500px;
+        height: 500px;
+        text-align: center;
+        line-height: 500px;
+
+        margin-left: -150px;
+        font-size: 250px;
+    }
+
+    .tool {
+        width: 800px;
+        height: 50px;
+        margin: 0 auto;
+        padding-left: 50px;
+
+    }
+
+    input {
+        height: 30px;
+        width: 100px;
+        outline: none;
+        border: none;
+    }
+
+    button {
+        border: none;
+        width: 50px;
+        height: 30px;
+        text-align: center;
+    }
+    .text{
+
+    background-image: -webkit-linear-gradient(left,blue,#66ffff 10%,#cc00ff 20%,#CC00CC 30%, #CCCCFF 40%, #00FFFF 50%,#CCCCFF 60%,#CC00CC 70%,#CC00FF 80%,#66FFFF 90%,blue 100%);
+    -webkit-text-fill-color: transparent;/* 将字体设置成透明色 */
+    -webkit-background-clip: text;/* 裁剪背景图，使文字作为裁剪区域向外裁剪 */
+    -webkit-background-size: 200% 100%;
+    -webkit-animation: masked-animation 4s linear infinite;
+
+}
+@keyframes masked-animation {
+    0% {
+        background-position: 0  0;
+    }
+    100% {
+        background-position: -100%  0;
+    }
+}
+</style>
+<body>
+<div class="countdown">
+    <audio>
+        <source src="time_over.mp3" type="audio/mpeg">
+        您的浏览器不支持 audio 元素。
+    </audio>
+    <div class="time text" >钱洲计时</div>
+   <!--  <div class="tool layui-inline " >
+        <label for="minutes">分:</label>
+        <input type="text" placeholder="分" id="minutes" class="layui-input">
+        <label for="seconds">秒:</label>
+        <input type="text" placeholder="秒" id="seconds" class="layui-input">
+        <button id="sta"  class="layui-btn layui-btn-normal  layui-btn-lg">开始</button>
+        <button id="sto"  class="layui-btn layui-btn-lg">停止</button>
+    </div> -->
+    <div class="layui-form-item tool">
+
+  <div class="layui-inline ">
+    <label class="layui-form-label" for="minutes">分：</label>
+    <div class="layui-input-inline" style="width: 100px;">
+      <input type="text" placeholder="分" id="minutes" autocomplete="off" class="layui-input">
+    </div>
+    <label class="layui-form-label" for="seconds">秒：</label>
+    <div class="layui-input-inline" style="width: 100px;">
+      <input type="text" name="price_max" placeholder="秒" autocomplete="off"  id="seconds" class="layui-input">
+    </div>
+  </div>
+
+   <button id="sta"  class="layui-btn layui-btn-normal  layui-btn-lg" style="width: 100px;font-size: 20px">开始</button>
+   <button id="sto"  class="layui-btn layui-btn-lg" style="width: 100px;font-size: 20px">停止</button>
+</div>
+</div>
+</body>
+<script>
+    let label = document.querySelectorAll('label')
+    let minutes = document.querySelector('#minutes')
+    let seconds = document.querySelector('#seconds')
+    let sta = document.querySelector('#sta')
+    let sto = document.querySelector('#sto')
+    let time = document.querySelector('.time')
+    let audio = document.querySelector('audio')
+    let timer, cur, flag = true
+    sta.addEventListener('click', function () {
+        change('none')
+        sto.style.width = 500 + "px"
+        sto.style.height = 100 + 'px'
+        sto.style.fontSize = 50 + 'px'
+        sto.style.marginLeft = 120 + 'px'
+        sto.style.marginTop = -50 + 'px'
+        if (flag) {
+            cur = parseInt(seconds.value ? seconds.value : 0) + parseInt(minutes.value ? minutes.value : 0) * 60
+            show()
+            timer = setInterval(function () {
+                flag = false
+                cur--;
+                if(cur===1){
+                    audio.play()
+                }
+                if (cur === 0 || cur === -1) {
+                    clearInterval(timer)
+                    flag = true
+                    time.innerHTML = '时间到'
+                } else {
+                    show()
+                }
+            }, 1000)
+        }
+    })
+    sto.addEventListener('click', function () {
+        clearInterval(timer)
+        minutes.value = Math.floor(cur / 60)>=0? Math.floor(cur / 60):0
+        seconds.value = cur - minutes.value * 60>=0?cur - minutes.value * 60:0
+        flag = true
+        change('inline-block')
+        sto.style.width = 100 + "px"
+        sto.style.height = 43 + 'px'
+        sto.style.fontSize = 20 + 'px'
+        sto.style.marginLeft = 0+'px'
+        sto.style.marginTop = 0 + 'px'
+    })
+
+    function show() {
+        if (parseInt(cur / 60) === 0) {
+            time.innerHTML = cur + "秒"
+        } else {
+            time.innerHTML = parseInt(cur / 60) + "分" + (cur - parseInt(cur / 60) * 60) + "秒"
+        }
+    }
+
+    function change(str) {
+        for (let i = 0; i < label.length; i++) {
+            label[i].style.display = str
+        }
+        sta.style.display = str
+        minutes.style.display = str
+        seconds.style.display = str
+    }
+</script>
+</html>

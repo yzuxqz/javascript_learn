@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>五子棋</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        /*棋盘*/
+        .goBang-wrapper {
+            width: 720px;
+            height: 720px;
+            margin: 20px auto;
+            background-color: #aca8a8;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+        }
+
+        .goBang li {
+            float: left;
+            box-sizing: border-box;
+            width: 40px;
+            height: 40px;
+            border-right: 1px solid #CCCCCC;
+            border-bottom: 1px solid #CCCCCC;
+        }
+
+        /*棋盘格子*/
+        .row,
+        .col,
+        .back,
+        .reGame {
+            position: absolute;
+            top: 20px;
+            left: 50px;
+            width: 100px;
+            height: 50px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+            text-align: center;
+            line-height: 50px;
+            font-weight: 700;
+        }
+
+        .col {
+            top: 80px;
+        }
+
+        .back {
+            top: 140px
+        }
+
+        .reGame {
+            top: 200px;
+        }
+
+        /*棋子*/
+        .goBang li div {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .goBang li:hover {
+            box-shadow: 0 0 0 rgba(0, 0, 0, .2),
+            0 0 0 rgba(255, 255, 255, 1),
+            inset 20px 20px 30px rgba(0, 0, 0, .1),
+            inset -20px -20px 30px rgba(255, 255, 255, 1);
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            let ul = document.querySelector('.goBang')
+            let rowBox = document.querySelector('.row')
+            let colBox = document.querySelector('.col')
+            let back = document.querySelector('.back')
+            let reGame = document.querySelector('.reGame')
+            let row
+            let col
+            let flag = true //true为黑方，false为白方
+            let lastindex //记录最后依次下的棋子位置
+            let str = '        <li>\n' +
+                '            <div></div>\n' +
+                '        </li>'
+            for (let i = 0; i < 324; i++) {
+                str += '        <li>\n' +
+                    '            <div></div>\n' +
+                    '        </li>'
+            }
+            ul.innerHTML = str
+            for (let i = 0; i < ul.children.length; i++) {
+                ul.children[i].setAttribute('data-index', i + 1)
+            }
+            //下棋
+            ul.addEventListener('click', function (e) {
+                //得到行列
+                let index = e.target.getAttribute('data-index')
+                lastindex = index
+                row = index === 18 ? 18 : Math.ceil(index / 18)
+                col = index % 18 === 0 ? 18 : index % 18
+                rowBox.innerHTML = '第' + row + '行'
+                colBox.innerHTML = '第' + col + '列'
+                //下棋子
+                if(e.target.nodeName==='LI'){
+                    e.target.children[0].style.display = 'block'
+                    if (flag) {
+                        e.target.children[0].style.backgroundColor = 'black'
+                        flag = false
+                    } else {
+                        e.target.children[0].style.backgroundColor = 'white'
+                        flag = true
+                    }
+                }
+
+            })
+            //悔棋
+            back.addEventListener('click', function () {
+                for (let i = 0; i < ul.children.length; i++) {
+                    if (ul.children[i].getAttribute('data-index') === lastindex) {
+                        ul.children[i].children[0].style.display = 'none'
+                    }
+                }
+                flag=!flag
+            })
+            //重来
+            reGame.addEventListener('click', function () {
+                for (let i = 0; i < ul.children.length; i++) {
+                    ul.children[i].children[0].style.display = 'none'
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+<div class="goBang-wrapper">
+    <ul class="goBang"></ul>
+</div>
+<div class="row"></div>
+<div class="col"></div>
+<div class="back">悔棋</div>
+<div class="reGame">重来</div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    window.onload = function () {
+        let ckbs = document.querySelectorAll('.choose input')
+        let ipt = document.querySelector('.cek-all')
+
+        function myClick(idStr, fun) {
+            let btn = document.querySelector(idStr);
+            btn.onclick = fun;
+        }
+
+        let func = function () {
+            ipt.checked = true;
+            for (let j = 0; j < ckbs.length; j++) {
+                if (ckbs[j].checked === false) {
+                    ipt.checked = false;
+                    break;
+                }
+            }
+        }
+        for (let i = 0; i < ckbs.length; i++) {
+            myClick("#" + ckbs[i].id, func)
+        }
+        myClick("#all", function () {
+            for (let i = 0; i < ckbs.length; i++) {
+                ckbs[i].checked = true;
+            }
+            ipt.checked = true;
+        })
+        myClick("#not-all", function () {
+            for (let i = 0; i < ckbs.length; i++) {
+                ckbs[i].checked = false;
+            }
+            ipt.checked = false;
+        })
+        myClick(".cek-all", function () {
+            if (this.checked === false) {
+                for (let i = 0; i < ckbs.length; i++) {
+                    ckbs[i].checked = false;
+                }
+            }
+            if (this.checked === true) {
+                for (let i = 0; i < ckbs.length; i++) {
+                    ckbs[i].checked = true;
+                }
+            }
+        })
+        myClick('#anti', function () {
+            for (let i = 0; i < ckbs.length; i++) {
+                ckbs[i].checked = !ckbs[i].checked;
+                func();
+            }
+        })
+        myClick('#submit', function () {
+            for (let i = 0; i < ckbs.length; i++) {
+                if (ckbs[i].checked) {
+                    console.log(ckbs[i].value)
+                }
+            }
+        })
+    }
+</script>
+<body>
+<input type="checkbox" class="cek-all">全选/全不选
+<div class="choose">
+    <input id="ipt1" type="checkbox" value="1" name="hobbies">
+    <input id="ipt2" type="checkbox" value="2" name="hobbies">
+    <input id="ipt3" type="checkbox" value="3" name="hobbies">
+    <input id="ipt4" type="checkbox" value="4" name="hobbies">
+    <input id="ipt5" type="checkbox" value="5" name="hobbies">
+</div>
+
+<button id="submit">提交</button>
+<button id="all">全选</button>
+<button id="not-all">全不选</button>
+<button id="anti">反选</button>
+
+</body>
+</html>
