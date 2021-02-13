@@ -2529,7 +2529,7 @@ let json = {
 
    enumberable:标识当前属性是否能用for in 枚举 默认为 false
 
-![ES5Object扩展1](assets/ES5Object%E6%89%A9%E5%B1%951.png)
+![](https://raw.githubusercontent.com/yzuxqz/pic-bed/master/notes-img/ES5Object%E6%89%A9%E5%B1%951.png)
 
 
 ### Object.defineProperty()
@@ -3018,6 +3018,7 @@ log(index);//2
 
 判断是否包含指定的字符串
 
+#### startsWith()
 #### startsWith()
 
 是否以某字符开头，返回布尔值
