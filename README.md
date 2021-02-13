@@ -133,13 +133,13 @@
 - 构造函数
 
   function Person(){
-  
+
   }
-  
+
   Person()		//不加new是普通函数
-  
+
   new Person()		//加new是构造函数
-  
+
   ```javascript
    function Star(uname, age, sex) { //构造函数首字母大写
               this.name = uname;
@@ -155,7 +155,7 @@
 
 ==注意==：
 
-1. 构造函数每执行一次就会创建一个新的方法，也就是说所有的实例的sing方法都是唯一的，这样占用了大量的内存空间，完全可以让所有的对象共享一个方法：对象的prototype属性中写  
+1. 构造函数每执行一次就会创建一个新的方法，也就是说所有的实例的sing方法都是唯一的，这样占用了大量的内存空间，完全可以让所有的对象共享一个方法：对象的prototype属性中写
 2. 对于不再使用的对象，必须设置为null，这样GC才会回收
 
    ```javascript
@@ -185,9 +185,9 @@ Object.assign(default,new)  //属性覆盖
 
 ```javascript
 for (const key in ldh) {
-           console.log(key);//输出属性名
-           console.log(ldh[key]);//输出属性值
-        }
+  console.log(key);//输出属性名
+  console.log(ldh[key]);//输出属性值
+}
 ```
 
 ==注意==：
@@ -199,7 +199,7 @@ for (const key in ldh) {
 
 1. instance of检测是否为该对象类型，Array和Function都是特殊的Object类型
 
-2. typeof 
+2. typeof
 
    能区别：数值/字符串/布尔值/undefined/function
 
@@ -253,7 +253,7 @@ for (const key in ldh) {
 ### 日期对象
 
 - 返回系统当前时间
-  		new Date()
+  new Date()
 
 - 返回自定义的时间
 
@@ -305,7 +305,7 @@ for (const key in ldh) {
 
   - +new Date()
 
-  - Date.now()<!--H5新增-->									
+  - Date.now()<!--H5新增-->
 
 
 
@@ -334,7 +334,7 @@ for (const key in ldh) {
 #### 检测是否为数组
 
 - arr instance of Array
-- Array.isArray(arr)<!--H5新增-->	
+- Array.isArray(arr)<!--H5新增-->
 
 #### 增
 
@@ -382,7 +382,7 @@ findIndex(),返回一个索引
 ```javascript
 //根据id从数组中查找元素的索引
 this.books.findIndex(function (item) {
-     return item.id == id;
+  return item.id == id;
 })
 ```
 
@@ -397,25 +397,25 @@ arr.reverse()，修改原数组
 
 ```javascript
 arr.sort(function(a,b){
-	if(a>b){
-		return 1;//换位置
-	}else if(a<b){
-		return -1;//不换
-	}else{
-		return 0;//a和b相等
-	}
+  if(a>b){
+    return 1;//换位置
+  }else if(a<b){
+    return -1;//不换
+  }else{
+    return 0;//a和b相等
+  }
 })
 ```
 
 ```javascript
 //对数字进行排序结果会出错，所以需要在sort里面放一个函数实现排序
 arr.sort(function (a, b) {
-<<<<<<< HEAD
-     return a - b;//升序，如果a-b>0,a>b返回一个>0的数，交换位置
+  <<<<<<< HEAD
+          return a - b;//升序，如果a-b>0,a>b返回一个>0的数，交换位置
 });
 return b-a;//降序
 =======
-     return a - b;//降序，如果a-b>0,a>b返回一个>0的数，交换位置
+return a - b;//降序，如果a-b>0,a>b返回一个>0的数，交换位置
 });
 return b-a;//升序
 >>>>>>> 1ceb7a2e23037ad4c54e9f577ca2057109b71222
@@ -450,9 +450,9 @@ arr.slice(开始索引，结束索引（不包含）)
 
 ```javascript
  //根据id查询出要编辑的数据
-                  this.books = this.books.filter(function(item){
-                       return item.id==id;
-                    });
+this.books = this.books.filter(function(item){
+  return item.id==id;
+});
 ```
 
 - some(function(){})
@@ -465,13 +465,13 @@ arr.slice(开始索引，结束索引（不包含）)
 
 ```javascript
  //根据当前的id去更新数组中对应的数据
-                        this.books.some((item) => { //箭头函数中的this指向定义这个函数的父级作用域中的this，也就是handle的this，指向vue实例
-                            if (item.id == this.id) {
-                                item.name = this.name;
-                                //完成更新操作后需要中止some遍历
-                                return true;
-                            }
-                        });
+this.books.some((item) => { //箭头函数中的this指向定义这个函数的父级作用域中的this，也就是handle的this，指向vue实例
+  if (item.id == this.id) {
+    item.name = this.name;
+    //完成更新操作后需要中止some遍历
+    return true;
+  }
+});
 ```
 
 ### 字符串对象
@@ -672,7 +672,7 @@ https://www.jianshu.com/p/e984c3619019
 
 1. JS中的对象只有JS自己认识，其他的语言都不认识
 2. JSON就是一个特殊格式的字符串，可以被任意语言所识别，且可以转成任意语言的对象，JSON在开发中主要用来数据的交互
-3. JavaScript Object Notation JS对象表示法 
+3. JavaScript Object Notation JS对象表示法
 
 ==注意==：
 
@@ -712,7 +712,7 @@ JSON.stringify()
 
 ### 节点操作
 
-![](\assets\节点属性.png)
+![](https://raw.githubusercontent.com/yzuxqz/pic-bed/master/notes-img/%E8%8A%82%E7%82%B9%E5%B1%9E%E6%80%A7.png)
 
 - nodeType
   1. 元素节点
@@ -842,7 +842,7 @@ innerHTML和innerText的区别
 - offset系列属性
 
   | offset系列属性       | 作用                                                         |
-  | -------------------- | ------------------------------------------------------------ |
+    | -------------------- | ------------------------------------------------------------ |
   | element.offsetParent | 返回最近一级的带有定位的父元素，没有则返回body==区别==element.parentNode返回最近一级父亲，不管有没有定位 |
   | element.offsetTop    | 返回元素相对带有定位父元素上方的偏移，没有则以body为准       |
   | element.oddsetLeft   | 返回元素相对带有定位父元素左边框的偏移                       |
@@ -852,7 +852,7 @@ innerHTML和innerText的区别
   ==offset与style的区别==
 
   | offset                                | style                            |
-  | ------------------------------------- | -------------------------------- |
+    | ------------------------------------- | -------------------------------- |
   | 可以得到任意样式表中的样式值          | 只能得到行内样式表中的样式值     |
   | 返回的数值没有单位                    | 返回带有单位的字符串             |
   | offsetWidth包括padding+border+width   | style.width不包括padding和border |
@@ -862,7 +862,7 @@ innerHTML和innerText的区别
 - client系列属性
 
   | client系列属性       | 作用                                                    |
-  | -------------------- | ------------------------------------------------------- |
+    | -------------------- | ------------------------------------------------------- |
   | element.clientTop    | 返回元素上边框的大小                                    |
   | element.clientLeft   | 返回元素左边框的大小                                    |
   | element.clientWidth  | 返回自身包括==padding，内容区==的宽度，返回数值不带单位 |
@@ -871,11 +871,11 @@ innerHTML和innerText的区别
 - scroll系列属性
 
   | scroll系列属性       | 作用                                                         |
-  | -------------------- | ------------------------------------------------------------ |
+    | -------------------- | ------------------------------------------------------------ |
   | element.scrollTop    | 返回被卷去的上侧距离（overflow：auto；滚动条），返回数值不带单位，有padding从内容离开padding算起，否则边框下沿开始计算 |
   | element.scrollLeft   | 返回被卷去的左侧距离，返回数值不带单位                       |
   | element.scrollWidth  | 返回自身不含边框的==实际宽度==（超出的也算进去），返回数值不带单位 |
-element.scrollHeight  返回自身不含边框的==实际高度==（超出的也算进去），返回数值不带单位 
+element.scrollHeight  返回自身不含边框的==实际高度==（超出的也算进去），返回数值不带单位
 
 ==注意==：
 
@@ -1026,24 +1026,24 @@ function animate(obj, target, callback) {
 
 2. element.innerHTML = ''
 
-   - 拼接字符串，很慢
+  - 拼接字符串，很慢
 
-     解决方法：存入数组中，一次性渲染，很快
+    解决方法：存入数组中，一次性渲染，很快
 
-     ```javascript
-     var inner = document.querySelector('.inner');
-             inner.innerHTML = '<a href="#">百度</a>';
-             // 创建多个字符串拼接的时候特别慢效率低
-             // 但是用数组的形式拼接是最快的
-             var arr = [];
-             var date1 = Date.now();
-             for (var i = 0; i < 1000; i++) {
-                 arr.push('<a href="#">9</a>');
-             }
-             inner.innerHTML = arr.join('');//数组转字符串
-             var date2 = Date.now();
-             console.log(date2 - date1);
-     ```
+    ```javascript
+    var inner = document.querySelector('.inner');
+            inner.innerHTML = '<a href="#">百度</a>';
+            // 创建多个字符串拼接的时候特别慢效率低
+            // 但是用数组的形式拼接是最快的
+            var arr = [];
+            var date1 = Date.now();
+            for (var i = 0; i < 1000; i++) {
+                arr.push('<a href="#">9</a>');
+            }
+            inner.innerHTML = arr.join('');//数组转字符串
+            var date2 = Date.now();
+            console.log(date2 - date1);
+    ```
 
 3. var child  = document.createElement();
 
@@ -1230,7 +1230,7 @@ location是一个对象，用于获取或设置窗体的URL，并且可以用于
 - 属性
 
   | 属性                   | 说明                                                  |
-  | ---------------------- | ----------------------------------------------------- |
+    | ---------------------- | ----------------------------------------------------- |
   | window.location.href   | 返回当前页面的URL                                     |
   | location.host          | 返回主机域名                                          |
   | location.port          | 返回端口号                                            |
@@ -1242,7 +1242,7 @@ location是一个对象，用于获取或设置窗体的URL，并且可以用于
 - 方法
 
   | 方法      | 说明                                                         |
-  | --------- | ------------------------------------------------------------ |
+    | --------- | ------------------------------------------------------------ |
   | assign()  | 与改变href属性一样可以跳转页面，可以后退，和直接修改location一样 |
   | replace() | 替换当前页，不记录历史，无法后退                             |
   | reload()  | 重新加载页面，若参数为true会强制刷新，相当于浏览器上的刷新按钮 |
@@ -1258,7 +1258,7 @@ location是一个对象，用于获取或设置窗体的URL，并且可以用于
     </script>
 ```
 
-#### navigator属性 
+#### navigator属性
 
 包含有关浏览器的信息，常用window.navigator.userAgent,返回由客户机发送服务器的user-agent头部的值，用正则进行匹配
 
@@ -1338,7 +1338,7 @@ location是一个对象，用于获取或设置窗体的URL，并且可以用于
 
 同步任务在主线程执行，形成一个执行栈。当有异步任务时，如ajax，DOM待触发事件，定时器。放入异步进程处理，触发后放入任务队列（异步队列），等待主线程执行完毕后，通过事件循环机制来任务队列中取出任务执行
 
-![JS执行队列](assets/JS%E6%89%A7%E8%A1%8C%E9%98%9F%E5%88%97.png)
+![](https://raw.githubusercontent.com/yzuxqz/pic-bed/master/notes-img/JS%E6%89%A7%E8%A1%8C%E9%98%9F%E5%88%97.png)
 
 # JS高级
 
@@ -1858,9 +1858,9 @@ function f(n) {
    var f = new Function(“xxxx	”);
 
 
-   ==注意==：所有函数都是Function的实例
+==注意==：所有函数都是Function的实例
 
-![function](assets/function.png)
+![function](https://raw.githubusercontent.com/yzuxqz/pic-bed/master/notes-img/function.png)
 
 ### 执行上下文栈
 
@@ -1967,19 +1967,19 @@ const square = d => d ** 2;
 
 ### 变量作用域
 
- - 局部变量（函数作用域）
-   1. 调用函数时创建函数作用域，函数执行完毕以后，函数作用域销毁
-   2. 每调用一次函数就会创建一个新的函数作用域，他们之间是互相独立的
-   3. 在函数作用域中可以访问全局变量，反之不行
-   4. 当在函数作用域中操作一个变量时，有则直接使用。没有，则去上一级作用域中去寻找
-   5. 定义形参就相当于var 定义变量
- - 全局变量（全局作用域）
-   1. 在打开页面时创建，关闭页面时销毁
-   2. 直接编写在script标签中的js代码，都在全局作用域
-   3. 在函数中不用var定义的变量也在全局作用域中
-   4. 全局作用域中有一个全局对象window，它代表的是一个浏览器的窗口，它由浏览器创建我们可以直接使用
-   5. 创建的变量都变成window对象的属性，创建的函数都变成window对象的方法
- - 当函数执行完毕，本作用域内的局部变量就会自动销毁
+- 局部变量（函数作用域）
+  1. 调用函数时创建函数作用域，函数执行完毕以后，函数作用域销毁
+  2. 每调用一次函数就会创建一个新的函数作用域，他们之间是互相独立的
+  3. 在函数作用域中可以访问全局变量，反之不行
+  4. 当在函数作用域中操作一个变量时，有则直接使用。没有，则去上一级作用域中去寻找
+  5. 定义形参就相当于var 定义变量
+- 全局变量（全局作用域）
+  1. 在打开页面时创建，关闭页面时销毁
+  2. 直接编写在script标签中的js代码，都在全局作用域
+  3. 在函数中不用var定义的变量也在全局作用域中
+  4. 全局作用域中有一个全局对象window，它代表的是一个浏览器的窗口，它由浏览器创建我们可以直接使用
+  5. 创建的变量都变成window对象的属性，创建的函数都变成window对象的方法
+- 当函数执行完毕，本作用域内的局部变量就会自动销毁
 ### 闭包的产生
 
 1. 当一个嵌套的内部函数引用了嵌套的外部函数的变量（函数），就产生了闭包
@@ -2042,7 +2042,7 @@ const square = d => d ** 2;
 
 ###### 获取ul中li的索引号
 
- - 最初的方法
+- 最初的方法
 
 
 ```javascript
@@ -2055,7 +2055,7 @@ var lis = document.querySelector('.nav').querySelectorAll('li');
         }//在循环的同时给每个li添加自定义属性index，需要时再读取属性值
 ```
 
- - 利用闭包
+- 利用闭包
 
 ```javascript
 for (var i = 0; i < lis.length; i++) {
@@ -2067,9 +2067,9 @@ for (var i = 0; i < lis.length; i++) {
             })(i)
         }
 ```
- 这里面的闭包指的是匿名函数，通过(i)把值保存到了num中。每个点击事件都有一个局部变量num，num保存的是相应的i值。
+这里面的闭包指的是匿名函数，通过(i)把值保存到了num中。每个点击事件都有一个局部变量num，num保存的是相应的i值。
 
- - 错误写法
+- 错误写法
 
 
 ```javascript
@@ -2345,7 +2345,7 @@ var regexp = / /i;
 //字面量创建
 ```
 
-### 检测		
+### 检测
 
 ```javascript
 regexp.test(str);
@@ -2459,7 +2459,7 @@ regexp.test(str);
 
    ==注意：==定时器的this还是指向window
 
-4. 参数不能同名 
+4. 参数不能同名
 
 ## JSON对象
 
@@ -2716,7 +2716,7 @@ var result = arr.reduce(fucntion(tmp,item,index){
 
 Function.prototype.bind()
 
-![bind](assets/bind.png)
+![bind](https://raw.githubusercontent.com/yzuxqz/pic-bed/master/notes-img/bind.png)
 
 # ES6
 
@@ -2882,7 +2882,7 @@ function show(a,b=5,c=10){
   let {s1,...s2}=obj;//s1是obj对象中的第一个数据，剩下的在s2数组中
   ```
 
-![三点运算符](assets/%E4%B8%89%E7%82%B9%E8%BF%90%E7%AE%97%E7%AC%A6.png)
+![三点运算符](https://raw.githubusercontent.com/yzuxqz/pic-bed/master/notes-img/%E4%B8%89%E7%82%B9%E8%BF%90%E7%AE%97%E7%AC%A6.png)
 
 ### JSON
 
@@ -3082,9 +3082,9 @@ str.repeat(3);
 
 3. #### Object.keys()
 
-   - 用于获取对象自身所有的属性
+  - 用于获取对象自身所有的属性
 
-   - 返回由属性名组成的数组
+  - 返回由属性名组成的数组
 
    ```javascript
            var obj = {
@@ -3162,18 +3162,18 @@ promise.then((data)=>{
 
 #### 作用：
 
-1. 为各种数据结构，提供一个统一的，简便的访问接口 
+1. 为各种数据结构，提供一个统一的，简便的访问接口
 2. 使得数据结构的成员能够按照某种次序排列
 3. ES6创造了一种新的遍历命令for...of循环，Iterator接口主要供for...of消费
 
 #### 工作原理：
 
-![](assets/iterator%E6%8E%A5%E5%8F%A3.png)
+![](https://raw.githubusercontent.com/yzuxqz/pic-bed/master/notes-img/iterator%E6%8E%A5%E5%8F%A3.png)
 
 #### 底层实现：
 
 实际上这里的nextIndex使用了闭包
-![](assets/iterator%E6%9C%BA%E5%88%B6.png)
+![](https://raw.githubusercontent.com/yzuxqz/pic-bed/master/notes-img/iterator%E6%9C%BA%E5%88%B6.png)
 
 #### 实现了iterator接口的数据结构
 
@@ -3185,7 +3185,7 @@ promise.then((data)=>{
 
 ### generator
 
-![](assets/generator.png)
+![](https://raw.githubusercontent.com/yzuxqz/pic-bed/master/notes-img/generator.png)
 
 普通函数：一路到底
 
@@ -3205,29 +3205,29 @@ generator函数：函数加*，中间能停，next一次走一步，yield处停�
 
 ```javascript
     //可以传参
-    function* show() {
-        alert('a')
-        let a = yield
-        alert('b')
-        console.log(a)
-    }
+function* show() {
+  alert('a')
+  let a = yield
+  alert('b')
+  console.log(a)
+}
 
-    let genObj = show()//yield之前函数传参
-    genObj.next(12)//没法给yield传参，执行函数开始到第一个yield，此时yield有值，但是并没有给变量a
-    genObj.next(5)//执行yield往后的代码，let a是在yield之后
+let genObj = show()//yield之前函数传参
+genObj.next(12)//没法给yield传参，执行函数开始到第一个yield，此时yield有值，但是并没有给变量a
+genObj.next(5)//执行yield往后的代码，let a是在yield之后
 
-    //可以返回
-    function* show2() {
-        alert('a')
-        yield 12
-        alert('b')
-        return 55
-    }
-    let genObj2 = show2()
-    let res1 = genObj2.next()
-    console.log(res1)
-    let res2 = genObj2.next()//这里的结果是通过函数中的return得到的
-    console.log(res2)
+//可以返回
+function* show2() {
+  alert('a')
+  yield 12
+  alert('b')
+  return 55
+}
+let genObj2 = show2()
+let res1 = genObj2.next()
+console.log(res1)
+let res2 = genObj2.next()//这里的结果是通过函数中的return得到的
+console.log(res2)
 ```
 
 
@@ -3260,20 +3260,20 @@ generator函数：函数加*，中间能停，next一次走一步，yield处停�
 
 ```html
  <script>
-        class Star {
-            constructor(uname, age) {
-                this.uname = uname;
-                this.age = age;
-            }
-            sing(song) {
-                console.log(this.uname + song);
-            }
-        }
-        var ldh = new Star('刘德华', 18);
-        var zxy = new Star('张学友')
-        console.log(ldh.uname + ldh.age);
-        ldh.sing('冰雨')
-    </script>
+  class Star {
+    constructor(uname, age) {
+      this.uname = uname;
+      this.age = age;
+    }
+    sing(song) {
+      console.log(this.uname + song);
+    }
+  }
+  var ldh = new Star('刘德华', 18);
+  var zxy = new Star('张学友')
+  console.log(ldh.uname + ldh.age);
+  ldh.sing('冰雨')
+</script>
 ```
 
 ==注意==：
@@ -3282,29 +3282,29 @@ this的指向问题
 
 ```html
 <body>
-    <button>
-        唱歌
-    </button>
-    <script>
-        var that;
-        class Father {
-            //构造器里面的this指向实例对象
-            constructor(uname, age) {
-                that = this;
-                this.uname = uname;
-                this.age = age;
-                // this.sing();
-                this.btn = document.querySelector('button');
-                this.btn.onclick = this.sing;//因为这个按钮调用了这个函数
-            }
-            //这个方法里的this 指向的是btn 这个按钮
-            sing() {
-                // console.log(this.uname);
-                console.log(that.uname); //that 里面存储的是constructor里面的this
-            }
-        }
-        var father = new Father('刘德华');
-    </script>
+<button>
+  唱歌
+</button>
+<script>
+  var that;
+  class Father {
+    //构造器里面的this指向实例对象
+    constructor(uname, age) {
+      that = this;
+      this.uname = uname;
+      this.age = age;
+      // this.sing();
+      this.btn = document.querySelector('button');
+      this.btn.onclick = this.sing;//因为这个按钮调用了这个函数
+    }
+    //这个方法里的this 指向的是btn 这个按钮
+    sing() {
+      // console.log(this.uname);
+      console.log(that.uname); //that 里面存储的是constructor里面的this
+    }
+  }
+  var father = new Father('刘德华');
+</script>
 </body>
 ```
 
@@ -3326,27 +3326,27 @@ this的指向问题
 
 ```html
     <script>
-        class Father {
-            constructor(x, y) {
-                this.x = x;
-                this.y = y;
-            }
-            sum() {
-                console.log(this.x + this.y);
-            }
-            money() {
-                console.log(100);
-            }
-        }
-        class Son extends Father {
-            constructor(x, y) {
-                super(x, y);
-            }
-        }
-        var son = new Son(1, 2);
-        son.money();
-        son.sum();
-    </script>
+  class Father {
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+    }
+    sum() {
+      console.log(this.x + this.y);
+    }
+    money() {
+      console.log(100);
+    }
+  }
+  class Son extends Father {
+    constructor(x, y) {
+      super(x, y);
+    }
+  }
+  var son = new Son(1, 2);
+  son.money();
+  son.sum();
+</script>
 ```
 
 ##### 继承方法
@@ -3358,48 +3358,48 @@ this的指向问题
 
 ```html
     <script>
-        class Father {
-            say() {
-                return '我是爸爸'
-            }
-        }
-        class Son extends Father{
-            say() {
-                console.log(super.say()+'的儿子'); 
-            }
-        }
-        var son = new Son();
-        son.say();
+  class Father {
+    say() {
+      return '我是爸爸'
+    }
+  }
+  class Son extends Father{
+    say() {
+      console.log(super.say()+'的儿子');
+    }
+  }
+  var son = new Son();
+  son.say();
 ```
 
 - ##### 扩展子类的方法
 
 ```html
     <script>
-        class Father {
-            constructor(x, y) {
-                this.x = x;
-                this.y = y;
-            }
-            sum() {
-                console.log(this.x + this.y);
+  class Father {
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+    }
+    sum() {
+      console.log(this.x + this.y);
 
-            }
-        }
-        class Son extends Father {
-            constructor(x, y) {
-                super(x, y);
-                this.x = x;
-                this.y = y;
-            }
-            sub() {
-                console.log(this.x - this.y);
-            }
-        }
-        var son = new Son(3, 1);
-        son.sum();
-        son.sub();
-    </script>
+    }
+  }
+  class Son extends Father {
+    constructor(x, y) {
+      super(x, y);
+      this.x = x;
+      this.y = y;
+    }
+    sub() {
+      console.log(this.x - this.y);
+    }
+  }
+  var son = new Son(3, 1);
+  son.sum();
+  son.sub();
+</script>
 ```
 
 ### 深度克隆
@@ -3416,31 +3416,31 @@ this的指向问题
 ```javascript
 let arr = [1, 2, {userName: 'xqz'}, 3, 2]
 
-        function clone(a) {
-            if (a instanceof Array) {
-                let arr1 = []
-                for (let i = 0; i < arr.length; i++) {
-                    if (arr[i] instanceof Object) {
-                        arr1[i] = clone(arr[i])
-                    } else {
-                        arr1[i] = arr[i]
-                    }
-                }
-                return arr1
-            } else if (a instanceof Object) {
-                let obj = {}
-                for (const key in a) {
-                    obj[key] = a[key]
-                }
-                return obj
-            }
-        }
+function clone(a) {
+  if (a instanceof Array) {
+    let arr1 = []
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] instanceof Object) {
+        arr1[i] = clone(arr[i])
+      } else {
+        arr1[i] = arr[i]
+      }
+    }
+    return arr1
+  } else if (a instanceof Object) {
+    let obj = {}
+    for (const key in a) {
+      obj[key] = a[key]
+    }
+    return obj
+  }
+}
 
-        let newArr = clone(arr)
-        console.log(newArr)
-        newArr[2].userName = 'hhh'
-        console.log(arr)
-        console.log(newArr)
+let newArr = clone(arr)
+console.log(newArr)
+newArr[2].userName = 'hhh'
+console.log(arr)
+console.log(newArr)
 ```
 
 ### set容器
@@ -3501,11 +3501,11 @@ size
 
 ```javascript
         let map = new Map([['username',25],[36,'age']])
-        console.log(map)
-        map.set(78,'haha')
-        console.log(map)
-        map.delete(78)
-        console.log(map)
+console.log(map)
+map.set(78,'haha')
+console.log(map)
+map.delete(78)
+console.log(map)
 ```
 
 ### for of
@@ -3528,30 +3528,30 @@ size
 
 ```javascript
         async function queryData() {
-            var ret = await axios.get('adata');
-            console.log(ret.data);
-            return ret.data;
-        }
-        queryData().then(data => {
-            console.log(data);
-        });
+  var ret = await axios.get('adata');
+  console.log(ret.data);
+  return ret.data;
+}
+queryData().then(data => {
+  console.log(data);
+});
 ```
 
 ==注意==：await后面必须跟promise实例对象，才能获取异步的结果
 
 ```javascript
         async function num() {
-            var ret = await new Promise(function (resolve, reject) {//resolve成功，reject失败
-                setTimeout(function () {
-                    resolve('nihao')
-                }, 1000)
-            });
-            console.log(ret);
-            return ret;
-        };
-        num().then(data => {
-            console.log(data);
-        })
+  var ret = await new Promise(function (resolve, reject) {//resolve成功，reject失败
+    setTimeout(function () {
+      resolve('nihao')
+    }, 1000)
+  });
+  console.log(ret);
+  return ret;
+};
+num().then(data => {
+  console.log(data);
+})
 ```
 
 - 处理多个异步任务
@@ -3570,7 +3570,7 @@ size
           })
   ```
 
-## Array.includes()   
+## Array.includes()
 
 表示某个数组是否包含给定的值，返回布尔值
 
@@ -3589,10 +3589,10 @@ arr.includes(2);//true
 
 ```javascript
 let obj ={
-    msg:'module',
-    foo(){
-        console.log('foo()',this.msg)
-    }
+  msg:'module',
+  foo(){
+    console.log('foo()',this.msg)
+  }
 }
 ```
 
@@ -3600,17 +3600,17 @@ let obj ={
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>Title</title>
 </head>
 <body>
 
 </body>
 <script src="module.js"></script>
 <script>
-    obj.foo()
-    obj.msg='修改了'//对象中的值仍然可以被修改
-    obj.foo()
+  obj.foo()
+  obj.msg='修改了'//对象中的值仍然可以被修改
+  obj.foo()
 </script>
 </html>
 ```
@@ -3620,13 +3620,13 @@ let obj ={
 ```javascript
 //有独立的作用域
 (function (window) {
-    let msg = 'module'
+  let msg = 'module'
 
-    function foo() {
-        console.log('foo()', msg)
-    }
-    //给全局的window对象添加属性
-    window.module={foo}
+  function foo() {
+    console.log('foo()', msg)
+  }
+  //给全局的window对象添加属性
+  window.module={foo}
 })(window)//闭包
 ```
 
@@ -3634,15 +3634,15 @@ let obj ={
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>Title</title>
 </head>
 <body>
 
 </body>
 <script src="module.js"></script>
 <script>
-module.foo()
+  module.foo()
 </script>
 </html>
 ```
@@ -3652,14 +3652,14 @@ module.foo()
 ```javascript
 //有独立的作用域
 (function (window, $) {
-    let msg = 'module'
+  let msg = 'module'
 
-    function foo() {
-        console.log('foo()', msg)
-    }
+  function foo() {
+    console.log('foo()', msg)
+  }
 
-    window.module = foo
-    $('body').css('background', 'red')
+  window.module = foo
+  $('body').css('background', 'red')
 
 })(window, jQuery)
 ```
@@ -3668,8 +3668,8 @@ module.foo()
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>Title</title>
 </head>
 <body>
 
@@ -3677,7 +3677,7 @@ module.foo()
 <script src="jquery.min.js"></script>
 <script src="module.js"></script>
 <script>
-    module()
+  module()
 </script>
 </html>
 ```
@@ -3699,21 +3699,21 @@ module.foo()
 ```javascript
 //1
 module.exports={
-    msg:'module1',
-    foo(){
-        console.log(this.msg)
-    }
+  msg:'module1',
+  foo(){
+    console.log(this.msg)
+  }
 }
 //2
 module.exports = function () {
-    console.log('module2')
+  console.log('module2')
 }
 //3
 exports.foo=function () {
-    console.log('foo() module3')
+  console.log('foo() module3')
 }
 exports.bar=function () {
-    console.log('bar() module3')
+  console.log('bar() module3')
 }
 exports.arr=[1,2,3,5,4,3,3,5]
 ```
@@ -3767,9 +3767,9 @@ console.log(result)
 
    ==注意==：
 
-   1. 前面的是原文件
-   2. -o表示output
-   3. 后面的是输出文件的目录以及文件名字
+  1. 前面的是原文件
+  2. -o表示output
+  3. 后面的是输出文件的目录以及文件名字
 
 4. 然后在index.html中引入输出的新文件，即可在浏览器端使用require
 
@@ -3789,14 +3789,14 @@ console.log(result)
 ```javascript
 //没有依赖的模块
 define(function () {
-    let name = 'dataService'
+  let name = 'dataService'
 
-    function getName() {
-        return name
-    }
+  function getName() {
+    return name
+  }
 
-    //暴露模块
-    return {getName}
+  //暴露模块
+  return {getName}
 })
 ```
 
@@ -3805,12 +3805,12 @@ define(function () {
 ```javascript
 //定义有依赖的模块
 define(['dataService'],function (dataService) {
-    let msg = 'alerter.js'
-    function showMsg() {
-        console.log(msg,dataService.getName())
-    }
-    //暴露模块
-    return {showMsg}
+  let msg = 'alerter.js'
+  function showMsg() {
+    console.log(msg,dataService.getName())
+  }
+  //暴露模块
+  return {showMsg}
 })
 ```
 
@@ -3819,16 +3819,16 @@ main.js
 ```javascript
 (function () {
 
-    requirejs.config({
-        baseUrl: 'js/',//基本的路径,出发点在根目录下
-        paths: {//配置路径
-            dataService: './modules/dataService',//属性名和之前定义的模块名一样
-            alerter: './modules/alerter'
-        }
-    })
-    requirejs(['alerter'], function (alerter) {
-        alerter.showMsg()
-    })
+  requirejs.config({
+    baseUrl: 'js/',//基本的路径,出发点在根目录下
+    paths: {//配置路径
+      dataService: './modules/dataService',//属性名和之前定义的模块名一样
+      alerter: './modules/alerter'
+    }
+  })
+  requirejs(['alerter'], function (alerter) {
+    alerter.showMsg()
+  })
 })()
 ```
 
@@ -3842,8 +3842,8 @@ index.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>Title</title>
 </head>
 <body>
 
@@ -3866,9 +3866,9 @@ index.html
 
 2. 安装babel-cli，babel-preset-es2015和browserify
 
-   - npm install babel-cli browserify -g
-   - npm install babel-preset-es2015 --save-dev
-   - preset 预设（将es6转为es5的所有插件打包）
+  - npm install babel-cli browserify -g
+  - npm install babel-preset-es2015 --save-dev
+  - preset 预设（将es6转为es5的所有插件打包）
 
 3. 定义.babelrc文件,
 
@@ -3887,11 +3887,11 @@ index.html
 ```javascript
 //暴露模块 分别暴露
 export function foo() {
-    console.log('foo() module1')
+  console.log('foo() module1')
 }
 
 export function bar() {
-    console.log('bar() module1')
+  console.log('bar() module1')
 }
 
 export let arr = [1,3,4,5]
@@ -3902,11 +3902,11 @@ export let arr = [1,3,4,5]
 ```javascript
 //统一暴露
 function fun() {
-    console.log('fun() module2')
+  console.log('fun() module2')
 }
 
 function fun2() {
-    console.log('fun2() module2')
+  console.log('fun2() module2')
 }
 
 export {fun,fun2}
@@ -3921,10 +3921,10 @@ export {fun,fun2}
 //     console.log("默认")
 // }
 export default {
-    msg:'默认暴露',
-    foo(){
-        console.log(this.msg)
-    }
+  msg:'默认暴露',
+  foo(){
+    console.log(this.msg)
+  }
 }
 ```
 
@@ -3950,7 +3950,7 @@ console.log(module1,module2)
 
 5.编译
 
-- 使用babel将ES6编译为ES5代码：==babel js/src -d js/lib==  
+- 使用babel将ES6编译为ES5代码：==babel js/src -d js/lib==
 
   ​													源文件目录      编译后的文件目录
 
